@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="params">
+		<fieldset name="djmegamenu-params" label="PLG_DJMEGAMENU_PARAMS_LABEL">
+			
+			<field name="djmegamenu-subtitle" type="text" size="40" default="" label="PLG_DJMEGAMENU_SUBTITLE" description="PLG_DJMEGAMENU_SUBTITLE_DESC" />
+			<field name="djmegamenu-submenu_expand" type="hidden" class="btn-group" default="" label="PLG_DJMEGAMENU_SUBMENU_EXPANDED" description="PLG_DJMEGAMENU_SUBMENU_EXPANDED_DESC">
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="djmegamenu-column_break" type="radio" class="btn-group" default="0" label="PLG_DJMEGAMENU_COLUMN_BREAK" description="PLG_DJMEGAMENU_COLUMN_BREAK_DESC">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="djmegamenu-column_width" type="text" size="10" default="" label="PLG_DJMEGAMENU_COLUMN_WIDTH" description="PLG_DJMEGAMENU_COLUMN_WIDTH_DESC" />
+			
+			<field name="djmegamenu-module_pos" type="text" size="20" default="" label="PLG_DJMEGAMENU_MODULE_POSITION" description="PLG_DJMEGAMENU_MODULE_POSITION_DESC" />
+			<field name="djmegamenu-module_style" type="list" default="xhtml" description="PLG_DJMEGAMENU_MODULES_STYLE_DESC" label="PLG_DJMEGAMENU_MODULES_STYLE">
+					<option value="table">PLG_DJMEGAMENU_TABLE</option>
+					<option value="horz">PLG_DJMEGAMENU_HORIZONTAL</option>
+					<option value="xhtml">PLG_DJMEGAMENU_DIVS</option>
+					<option value="rounded">PLG_DJMEGAMENU_MULTIPLEDIVS</option>
+					<option value="none">PLG_DJMEGAMENU_RAW</option>
+			</field>
+			<field name="djmegamenu-module_show_link" type="radio" class="btn-group" default="0" label="PLG_DJMEGAMENU_MODULE_SHOW_LINK" description="PLG_DJMEGAMENU_MODULE_SHOW_LINK_DESC">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+		</fieldset>
+	</fields>
+</form>

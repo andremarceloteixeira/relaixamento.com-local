@@ -1,0 +1,597 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+   
+@import "template_variables.less";
+@import "bootstrap_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "../../../plugins/system/ef4_jmframework/includes/assets/template/bootstrap/less-ext/mixins-ext.less"; //JM extended mixins
+@import "template_mixins.less";
+
+// layout.less
+// --------------------------  
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+//sticky styles for top-bar
+.sticky-bar #jm-top-bar {
+  left: auto;
+  right: 0;
+}
+
+//top-bar modules
+#jm-top-bar .jm-module-raw {
+	margin: 0 10px 0 0;
+  text-align: left;
+  &:last-child:before {
+  	left: auto;
+  	right: 0;
+  }
+}
+
+#jm-logo-sitedesc {
+ //description
+  #jm-sitedesc {
+    padding: 0 10px 0 0;
+  }
+}
+
+#jm-header-bg + #jm-header-content {
+  left: auto;
+  right: 50%;
+  margin-left: 0;
+  margin-right: -(@JMfluidGridContainerLg/2);
+}
+
+.fluid #jm-header-bg + #jm-header-content {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: ((100% - @JMfluidGridContainerLg)/2);
+}
+
+#jm-font-switcher {
+  text-align: left;
+}
+
+// JM copyright align
+#jm-footer-right {
+  text-align: left;
+}
+
+#jm-back-top {
+  right: auto;
+  left: 20px;
+}
+
+// joomla.less
+// --------------------------  
+/* ==========================================================================
+   BOOTSTRAP
+   ========================================================================== */
+  
+//chosen
+#jm-allpage .chzn-container .chzn-drop,
+#jm-allpage .chzn-container-single.chzn-container-single-nosearch .chzn-search {
+  left: auto;
+  right: -9999px;
+}
+
+#jm-allpage .chzn-container.chzn-with-drop .chzn-drop {
+  left: auto;
+  right: 0;
+}
+
+//chzn
+#jm-allpage {
+  .chzn-container-multi .chzn-choices li {
+    float: right;
+  }
+  .chzn-container-single .chzn-single span {
+    margin-right: 0;
+    margin-left: 26px;
+  }
+  .chzn-container-single .chzn-single div {
+    right: auto;
+    left: 8px;
+  }
+}
+
+/* ==========================================================================
+   JOOMLA COMPONENT
+   ========================================================================== */
+
+//page headings
+h1.componentheading, //extension headings support
+.tag-category > h1, //tag category
+.page-header > h1, //global
+.content-category > h1, //category-list
+.categories-list > h1, //categories-list
+.blog-featured > h1, //featured contacts
+.contact-category > h1, //contact category
+.contact > h1, //single contact
+.newsfeed-category > h1, //newsfeed category
+h1.page-title, //search form
+.finder > h1, //smart search
+.weblink-category > h1, //weblink category
+.edit > h1 //submit weblink 
+{
+  padding: 0 20px 0 0;
+  &:after {
+    left: auto;
+    right: 0;
+  } 
+} 
+
+//all articles
+.article-info a {
+  display: inline-block;
+}
+
+//rating and voting
+.content_vote label {
+  margin: 0 0 0 5px;
+}
+
+//article categories
+.categories-list .collapse {
+  padding: 0 @JMbaseSpace 0 0;
+}
+
+//category blog
+//article separator
+.pull-left.item-image {
+  margin-right: 0;
+  margin-left: @JMbaseSpace;
+}
+
+.pull-right.item-image {
+  margin-left: 0;
+  margin-right: @JMbaseSpace;
+}
+  
+//readmore
+.blog p.readmore {
+  text-align: left;
+}
+
+//weblinks single category
+.weblink-count {
+  dt,
+  dd {
+    float: right;
+  }
+}
+
+//tag-category
+.tag-category {
+  .form-inline label {
+    margin-right: 0;
+    margin-left: 10px;
+  } 
+}
+
+//search component
+.phrases-box,
+fieldset.only {
+  label {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
+
+//article index
+.article-index {
+  margin-left: 0;
+  margin-right: @JMbaseSpace;
+}
+
+/* ==========================================================================
+   JOOMLA MODULES
+   ========================================================================== */
+
+//article categories
+.categories-module li  {
+  .mod-articles-category-category a {
+    display: inline-block;
+  }
+}
+
+//article category
+.category-module li {
+  .mod-articles-category-category a {
+    display: inline-block;
+  }
+}
+
+//search module
+.form-search {
+  label.finder {
+    padding: 0 0 0 10px;
+  }
+}
+
+//popular tags
+.tagspopular.tagscloud {
+  .tag {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+} 
+
+// menus.less
+// --------------------------  
+/* ==========================================================================
+   MENUS
+   ========================================================================== */
+
+.nav.menu {
+  li a,
+  li span.separator {
+    padding: 10px 0 10px 20px;
+  }
+  > li.parent:after {
+    right: auto;
+    left: 5px;
+    border-width: 4.5px 5px 4.5px 0;
+    border-color: transparent @JMmenuArrowColor transparent transparent;
+    border-color: rgba(0,0,0,0) @JMmenuArrowColor rgba(0,0,0,0) rgba(0,0,0,0);
+  }
+  ul {
+    padding: 0 20px 0 0;
+  }
+}
+
+/* footer-mod */
+.jm-footer .nav.menu {
+  > li.parent:after {
+    border-color: transparent @JMmenuFootermodBorderColor transparent transparent;
+    border-color: rgba(0,0,0,0) @JMmenuFootermodBorderColor rgba(0,0,0,0) rgba(0,0,0,0);
+  }
+}
+
+/** top-bar menu **/
+#jm-top-bar .nav.menu {
+  > li a.color {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+#jm-top-bar .nav.menu {
+  li ul {
+    left: auto;
+    right: 0;
+    text-align: right;
+  }
+  li li ul {
+    left: auto;
+    right: 100%;
+  }
+}
+
+/** tags **/
+.tagspopular ul,
+.tagssimilar ul,
+.nav.menu.tags-ms,
+.tags-ms .nav.menu {
+  > li {
+    margin: 0 0 10px 10px;
+  }
+}
+
+.tagspopular ul,
+.tagssimilar ul {
+  > li {
+    margin: 0 0 10px 6px;
+  }
+}
+
+#jm-allpage .tags-ms {
+  > span {
+    margin: 0 0 10px 1px;
+  }
+}
+
+// modules.less
+// --------------------------  
+/* ==========================================================================
+   MODULES
+   ========================================================================== */
+
+.span50 {
+  float: right !important;
+}  
+
+// default module
+.jm-module {
+  .jm-title {
+    padding: 0 20px 0 0;
+    &:before {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+//module in article
+.moduletable {
+  > h3 {
+    padding: 0 20px 0 0;
+    &:before {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+// title-border1-ms
+.jm-module.title-border1-ms {
+  .jm-title {
+    padding: 0 0 0 @JMbaseSpace;
+    &:after {
+      left: auto;
+      right: 100%;
+    }
+  }
+}
+
+// title-border2-ms
+.jm-module.title-border2-ms {
+  .jm-title {
+    &:after,
+    &:before {
+      left: auto;
+      right: 100%;
+    }
+    &:after {
+      left: 100%;
+      right: auto;
+    }
+  }
+}
+
+// topbar login/logout
+#jm-top-bar #login-form {
+  padding: 0 15px 0 0;
+  &:before {
+  	left: auto;
+  	right: 0;
+  }
+  .jm-circle-link {
+  	left: auto;
+  	right: -6px;
+  	background-position: 4px 4px;
+  	background-image: url('../images/arrow-close.png');
+  }
+  &.open .jm-circle-link {
+		background-image: url('../images/arrow-open.png');
+		background-position: 5px 4px;
+	}
+	#jm-login-wrap {
+    float: right;
+  }
+  .control-group,
+  div.login-greeting,
+  .logout-button {
+    float: right;
+    margin: 0 5px 0 0;
+  }
+  .btn {
+    padding: 0 10px 0 0;
+  }
+  #jm-inputs-wrap {
+  	float: right;
+  }
+	&.open #form-login-submit {
+    margin: 0 10px 0 0;
+  }
+  #form-login-remember {
+  	float: right;
+  }
+  .jm-login-links {
+  	li {
+  		float: right;
+  	}
+  }
+}
+
+// jmmoduleraw
+.jm-module-raw {
+  float: left;
+  margin-right: 0;
+  margin-left: 10px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+// custom html
+// ----------------------------------- 
+
+// header slogan
+#jm-allpage #jm-allpage-in .jm-custom-title {
+  p {
+    float: right;
+  }
+}
+
+// search1-ms
+#jm-allpage .search1-ms { 
+	text-align: left;
+	form {
+		text-align: right;
+	}
+  .inputbox.first_input,
+  .inputbox.search-query {
+    text-align: right;
+    padding: 8px 25px 8px 85px;
+  }
+  button.button,
+  input.button {
+  	border-left: none;
+    border-right: 1px solid @JMsearchInputBorder;
+    padding: 0 20px 0 0;
+    right: auto;
+    left: 25px;
+    background-position: center left;
+  }
+  .jm-advanced-link {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  .jm-advanced-link.arrow {
+ 		left: 0;
+ 		right: auto;
+  }
+}
+
+#jm-allpage .search1-ms.category-ms .dj_cf_search {
+  #form-search .inputbox.first_input,
+  #form-search .inputbox.search-query {
+  	padding-left: 85px;
+    padding-right: (@JMsearch1CategoryInputWidth + 45);
+  }
+  #form-search .search_cats {
+    left: auto;
+    right: 25px;
+    //chosen
+    .chzn-container.chzn-container-single .chzn-single {
+    	border-right: none;
+      border-left: 1px solid @JMsearchInputBorder;
+      padding: 0 0 0 30px;
+    }
+  }
+}
+
+// search2-ms
+#jm-allpage .search2-ms { 
+  .inputbox.first_input,
+  .inputbox.search-query {
+    text-align: left;
+    padding: 8px 25px 8px 85px;
+  }
+  button.button,
+  input.button {
+    right: auto;
+    left: 0;
+  }
+  .jm-advanced-link.arrow {
+ 		left: 10px;
+ 		right: auto;
+  }
+}
+
+#jm-allpage .search2-ms.category-ms .dj_cf_search {
+  #form-search .inputbox.first_input,
+  #form-search .inputbox.search-query {
+    padding-left: 85px;
+    padding-right: (@JMsearch2CategoryInputWidth + 25);
+  }
+  #form-search .search_cats {
+    left: auto;
+    right: 0;
+    //chosen
+    .chzn-container.chzn-container-single .chzn-single {
+      border-right: none;
+      border-left: 1px solid @JMsearchInputBorder;
+      padding: 0 25px 0 55px;
+      div {
+        left: 20px;
+        right: auto;
+      }
+    }
+  }
+}
+
+// categories
+.jm-box {
+	.jm-box-in {
+		float: right;
+	}
+}
+
+// social 
+.jm-social-title {
+  left: 100%;
+  right: auto;
+  margin-right: 0;
+  margin-left: @JMbaseSpace;
+}
+    
+.jm-icons {
+  a {
+    float: right;
+  }
+}
+
+// table pricing
+// --------------------------
+
+#jm-allpage table.pricing {
+  float: right;
+}
+
+// editor.less
+// --------------------------  
+/* ==========================================================================
+   EDITOR
+   ========================================================================== */
+  
+/** numered blocks **/
+
+.jm-block {
+  padding: 0 60px 0 0;
+  span {
+    left: auto;
+    right: 0;
+  }
+}
+
+/** icon blocks **/
+
+p.jmbadge,
+p.jmcalendar,
+p.jmchat,
+p.jmcheck,
+p.jmcloud,
+p.jmdirection,
+p.jmdivide,
+p.jmerror,
+p.jmfire,
+p.jmflag,
+p.jmheart,
+p.jmhome,
+p.jminfo,
+p.jmlist,
+p.jmmail,
+p.jmpeople,
+p.jmstar,
+p.jmstat {
+  padding-left: 0;
+  padding-right: 60px;
+  background-position: right top;
+}
+
+/* ==========================================================================
+   EXTENSIONS import
+   ========================================================================== */
+
+//import extended DJ-Megamenu styles
+@import "djmegamenu_rtl.less";
+
+//import extended DJ-Mediatools styles
+@import "djmediatools_rtl.less";

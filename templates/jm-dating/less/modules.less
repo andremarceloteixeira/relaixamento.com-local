@@ -1,0 +1,952 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   MODULE LAYOUT styles
+   ========================================================================== */
+
+.span0 {
+  float: none !important;
+}
+
+.span50 {
+  float: left !important;
+  width: 50% !important;
+}
+
+// default module
+.jm-module {
+  margin-bottom: @JMbaseSpace;
+  .jm-title {
+    margin: 0 0 36px;
+    font-weight: 300;
+    color: @JMmoduleTitleColor;
+    line-height: 1.1;
+    font-family: @JMmoduleTitleFontFamily;
+    font-size: @JMmoduleTitleFontSize;
+    position: relative;
+    padding: 0 0 0 20px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: auto;
+      bottom: 5px;
+      width: 8px;
+      height: 8px;
+      background: @JMstyle;
+    }
+  }
+}
+
+//module in article
+.moduletable {
+  margin-bottom: @JMbaseSpace;
+  > h3 {
+    margin: 0 0 15px;
+    font-weight: 300;
+    color: @JMmoduleTitleColor;
+    line-height: 1.1;
+    font-family: @JMmoduleTitleFontFamily;
+    font-size: @JMmoduleTitleFontSize;
+    position: relative;
+    padding: 0 0 0 20px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: auto;
+      bottom: 5px;
+      width: 8px;
+      height: 8px;
+      background: @JMstyle;
+    }
+  }
+}
+
+// title-small-ms
+.jm-module.title-small-ms .jm-title {
+  font-size: 16px;
+  margin: 0 0 @JMbaseSpace;
+  text-transform: uppercase;
+  padding: 0;
+  &:before {
+    display: none;
+  }
+}
+
+// title-border1-ms
+.jm-module.title-border1-ms {
+  .jm-title-wrap {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 @JMbaseSpace;
+  }
+  .jm-title {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    font-size: @JMtitleBorderModuleFontSize;
+    line-height: 1.2;
+    padding: 0 @JMbaseSpace 0 0;
+    margin: 0;
+    &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 9999px;
+      background: @JMtitleBorderModuleBorderColor;
+      top: 50%;
+      left: 100%;
+      right: auto;
+    }
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// title-border2-ms
+.jm-module.title-border2-ms {
+  .jm-title-wrap {
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 @JMbaseSpace;
+    text-align: center;
+  }
+  .jm-title {
+    display: inline-block;
+    vertical-align: top;
+    font-size: @JMtitleBorderModuleFontSize;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0 @JMbaseSpace;
+    position: relative;
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 220px;
+      background: @JMtitleBorderModuleBorderColor;
+      top: 50%;
+      left: 100%;
+      right: auto;
+      max-width: 100%;
+    }
+    &:after {
+      left: auto;
+      right: 100%;
+    }
+  }
+}
+
+// title-color-ms
+.jm-module.title-color-ms .jm-title {
+  font-size: @JMtitlecolorModuleTitleFontSize;
+  margin: 0 0 @JMbaseSpace;
+  text-align: center;
+  color: @JMstyleTitleColorModuleTitle;
+  padding: 0;
+  &:before {
+    display: none;
+  }
+}
+
+// title-center-ms
+.jm-module.title-center-ms .jm-title {
+  font-size: @JMtitlecenterModuleTitleFontSize;
+  margin: 0 0 @JMbaseSpace;
+  text-align: center;
+  padding: 0;
+  &:before {
+    display: none;
+  }
+}
+
+// white-ms
+#jm-allpage .jm-module.white-ms {
+  background: @JMwhiteModuleBackground;
+  border: 1px solid @JMwhiteModuleBorderColor;
+  .border-radius(@baseBorderRadius);
+  .jm-module-content {
+    color: @JMwhiteModuleFontColor;
+    padding: 20px;
+  } 
+  .jm-title {
+    color: @JMwhiteModuleTitleColor;
+    font-size: @JMwhiteModuleTitleFontSize;
+    text-transform: uppercase;
+    padding: 15px 20px 0;
+    margin: 0;
+    &:before {
+      display: none;
+    }
+  }
+} 
+
+// remove margins
+.jm-module.margin-ms {
+  margin: 0;
+}
+
+.jm-module.side-margin-ms {
+  margin-left: -@JMbaseSpace;
+  margin-right: -@JMbaseSpace;
+}
+
+// header modules
+#jm-header-bg .jm-module {
+  margin: 0;
+  .jm-title {
+    display: none;
+  }
+} 
+
+.header-bg #jm-header {
+  .jm-module {
+    margin: (@JMbaseSpace/2) 0 0;
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+// topbar login/logout
+#jm-top-bar #login-form {
+	display: inline-block;
+	vertical-align: top;
+  padding: 0 0 0 15px;
+  margin: 0;
+  position: relative;
+  .cf();
+  .jm-circle-link {
+		content: '';
+  	position: absolute;
+  	top: 50%;
+  	left: -6px;
+  	right: auto;
+  	width: 13px;
+  	height: 13px;
+  	margin-top: -6px;
+  	background-color: @JMstyle;
+  	background-position: 4px 4px;
+  	background-repeat: no-repeat;
+  	background-image: url('../images/arrow-open.png');
+  	cursor: pointer;
+  }
+  &.open .jm-circle-link {
+  	background-position: 5px 4px;
+		background-image: url('../images/arrow-close.png');
+	}
+	#form-login-submit {
+    margin: 0;
+    padding: 8px 0;
+  }
+	&.open #form-login-submit {
+    margin: 0 0 0 10px;
+  }
+  .control-group,
+  div.login-greeting,
+  .logout-button {
+    float: left;
+    margin: 0 0 0 5px;
+  }
+  #jm-login-wrap {
+    display: none;
+    float: left;
+    margin: 0;
+    padding: 5px 0 0;
+  	.control-group {
+  		line-height: 1;
+  	}
+  }
+  .input-prepend {
+  	vertical-align: top;
+  }
+  .btn {
+    padding: 0 0 0 10px;
+    color: @JMmenuTopbarLinkColor;
+    font-size: 13px;
+    font-weight: 400;
+    background: none;
+    line-height: @JMtopbarHeight;
+    .box-shadow(none);
+    vertical-align: top;
+    .box-sizing(border-box);
+    &:hover{
+    	color: @JMmenuTopbarActiveFontColor;
+    }
+    &:focus {
+    	outline: 0;
+    }
+  }
+  &.open,
+  .logout-button {
+  	.btn {
+  		background: @JMsearch1AdvancedButtonBackground;
+	    color: @JMstyle;
+	    border: 1px solid @JMstyle;
+	    .border-radius(@JMtopbarHeight);
+	    line-height: (@JMtopbarHeight - 2);
+	    padding: 0 20px;
+	    &:hover {
+	      background: @JMsearch1AdvancedButtonBackgroundHover;
+	    }
+  	}
+  }
+  ul.unstyled,
+  ul .jm-register {
+    display: none;
+  }
+  #jm-inputs-wrap {
+  	float: left;
+  	input {
+	  	font-size: 12px;
+	  	height: 25px;
+	  	line-height: 25px;
+	  	padding: 0 10px;
+	  }
+	  .input-append .add-on,
+	  .input-prepend .add-on {
+	  	font-size: 10px;
+	  	height: 25px;
+	  	line-height: 25px;
+	  	.box-sizing(border-box);
+	  	vertical-align: middle;
+	  	span {
+	  		top: 0;
+	  		color: @JMinputFontColor;
+	  		line-height: 23px;
+	  	}
+	  }
+  }
+  #form-login-remember {
+  	float: left;
+  	height: auto;
+  	margin: 0;
+  	label {
+	  	display: none;
+  	}
+  	input {
+  		height: auto;
+  		line-height: 1;
+  		margin: 28px 0 0;
+  	}
+  }
+  .logout-button + .jm-circle-link {
+  	display: none;
+  }
+  .jm-login-links {
+  	clear: both;
+  	line-height: 1;
+  	li {
+  		float: left;
+  		padding: 5px 5px 0;
+  		a {
+  			display: block;
+  			font-size: 10px;
+  			line-height: 1.2;
+  			text-decoration: none;
+  		}
+  	}
+  }
+  .login-greeting,
+  .logout-button {
+    padding: 8px 0;
+  }
+}
+
+// jmmoduleraw
+.jm-module-raw {
+  float: right;
+  margin-right: 10px;
+  &:first-child {
+    margin-right: 0;
+  }
+}
+
+// custom html
+// ----------------------------------- 
+
+// header slogan
+#jm-allpage #jm-allpage-in .jm-custom-title {
+  font-size: @JMheaderSloganFontSize;
+  font-weight: 300;
+  line-height: 1;
+  color: @JMheaderSloganColor;
+  .opacity(80);
+  .cf();
+  + div {
+  	margin-top: 15px;
+  }
+  p {
+    clear: both;
+    display: block;
+    float: left;
+    padding: 20px 25px;
+    background: @JMheaderSloganBackground;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+  p + p {
+    margin: -20px 0 0;
+    z-index: 1;
+  }
+}
+
+#jm-allpage #jm-allpage-in #jm-header-bg .jm-custom-title { 
+	max-width: @JMfluidGridContainerLg;
+	margin: 0 auto;
+}
+
+//color class
+.color {
+  color: @JMstyle;
+}
+
+// search1-ms (top)
+#jm-allpage .search1-ms { 
+	text-align: right;
+  form {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    max-width: @JMsearch1InputWidth;
+    width: 100%;
+    text-align: left;
+  }
+  form + div {
+    display: none;
+  }  
+  .inputbox.first_input,
+  .inputbox.search-query {
+    .box-sizing(border-box);
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+    color: @JMsearchInputFontColor;
+    border: 1px solid @JMsearchInputBorder;
+    .border-radius(30px);
+    width: 100%!important;
+    max-width: none;
+    height: 54px;
+    min-height: 54px;
+    padding: 8px 85px 8px 25px;
+    margin: 0;
+  }
+  .inputbox.first_input + div {
+    clear: both;
+    margin-top: 20px;
+  }
+  button.button,
+  input.button {
+    font-size: 0;
+    filter: none;
+    width: 20px;
+    height: 36px;
+    line-height: 36px;
+    border: none;
+    border-left: 1px solid @JMsearchInputBorder;
+    .box-shadow(none);
+    .box-sizing(content-box);
+    text-shadow: none;
+    .border-radius(0); 
+    padding: 0 0 0 20px;
+    margin: 0;
+    position: absolute;
+    top: 9px;
+    right: 25px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center right;
+    background-image: url("../images/@{JMimgDir}/search.png");
+  }
+  #form-search > a {
+    display: none;
+  }
+  .jm-advanced-link {
+    display: inline-block;
+    vertical-align: top;
+    background: @JMsearch1AdvancedButtonBackground;
+    line-height: 20px;
+    padding: 16px 40px; 
+    color: @JMstyle;
+    border: 1px solid @JMstyle;
+    .border-radius(30px);
+    margin-left: 20px;
+    cursor: pointer;
+    &:hover {
+      background: @JMsearch1AdvancedButtonBackgroundHover;
+    }
+  }
+  .jm-advanced-link.arrow {
+  	color: @JMbodyFont;
+  	display: none;
+  	padding: 0;
+  	text-decoration: none;
+  	background: none;
+  	border: none;
+ 		.border-radius(0);
+ 		position: absolute;
+ 		top: auto;
+ 		bottom: 2px;
+ 		left: auto;
+ 		right: 0;
+ 		&:hover {
+ 			.opacity(80);
+ 		}
+  }
+  .open .jm-advanced-link.arrow {
+  	display: block
+  }
+}
+
+#jm-allpage .search1-ms.category-ms .dj_cf_search {
+  #form-search .inputbox.first_input,
+  #form-search .inputbox.search-query {
+    padding-left: (@JMsearch1CategoryInputWidth + 45);
+  }
+  #form-search .search_cats {
+    display: block;
+    margin: 0!important;
+    width: @JMsearch1CategoryInputWidth;
+    position: absolute;
+    left: 25px;
+    right: auto;
+    top: 10px;
+    > div {
+      display: none;
+      margin: 0;
+    }
+    > select {
+      color: @JMsearchInputFontColor;
+      border: 1px solid @JMsearchInputBorder;
+      width: 100%!important;
+      margin: 12px;
+    }
+    //chosen
+    .chzn-container.chzn-container-single {
+      display: inline-block;
+    }
+    .chzn-container.chzn-container-single .chzn-single {
+      border: none;
+      border-right: 1px solid @JMsearchInputBorder;
+      font-size: 16px;
+      font-weight: 300;
+      color: @JMsearchInputFontColor;
+      padding: 0 30px 0 0;
+      span {
+        margin: 0;
+      }
+    }
+  }
+}
+
+#jm-allpage .search1-ms { 
+  form.open {
+    padding-bottom: 30px;
+  }
+}
+
+// search2-ms (header)
+#jm-allpage .search2-ms { 
+	font-size: @JMbaseFontSize;
+  form {
+    margin: 0;
+    position: relative;
+    max-width: @JMsearch2InputWidth;
+    background: rgba(red(@JMsearch2ModuleBackground), green(@JMsearch2ModuleBackground), blue(@JMsearch2ModuleBackground), 0.85);
+  }
+  form > div {
+    padding: 0 25px;
+    .box-sizing(border-box);
+  }
+  .inputbox.first_input,
+  .inputbox.search-query {
+    border: none;
+    .box-sizing(border-box);
+    text-align: left;
+    font-size: 16px;
+    font-weight: 300;
+    color: @JMsearchInputFontColor;
+    width: 100%!important;
+    max-width: none;
+    height: 60px;
+    min-height: 60px;
+    padding: 8px 85px 8px 25px;
+    margin: 0;
+    background: transparent;
+  }
+  .inputbox.first_input + div {
+    clear: both;
+    margin-top: 25px;
+  }
+  button.button,
+  input.button {
+    font-size: 0;
+    filter: none;
+    width: 60px;
+    height: 60px;
+    border: none;
+    .box-shadow(none);
+    .border-radius(0);
+    line-height: normal;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    background-repeat: no-repeat;
+    background-color: @JMstyle;
+    background-position: center center;
+    background-image: url("../images/search.png");
+    &:hover {
+      background-color: darken(@JMstyle, 10%);
+    }
+  }
+  #form-search > a {
+    display: none;
+  }
+  .dj_cf_search label,
+  .dj_cf_search span.label {
+  	margin: 0 0 10px;
+  }
+  .jm-advanced-link {
+    display: inline-block;
+    cursor: pointer;
+    color: @JMsearch2AdvancedLinkColor;
+    line-height: 30px;
+    span {
+      font-size: 12px;
+      padding: 0 3px;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  //labels
+  .dj_cf_search label,
+  .dj_cf_search span.label {
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .jm-advanced-link.arrow {
+  	color: @JMbodyFont;
+  	display: none;
+  	padding: 0;
+  	text-decoration: none;
+  	background: none;
+  	border: none;
+ 		.border-radius(0);
+ 		position: absolute;
+ 		top: auto;
+ 		bottom: 2px;
+ 		left: auto;
+ 		right: 10px;
+ 		&:hover {
+ 			.opacity(80);
+ 		}
+  }
+  .open .jm-advanced-link.arrow {
+  	display: block
+  }
+  //classifieds fields
+  .dj_cf_search.dj_cf_search_horizontal .djseform_field {
+  	margin-left: @JMbaseSpace;
+  	min-width: 150px;
+  	width: auto!important;
+  	&:first-child {
+  		margin-left: 0!important;
+  	}
+  }
+  .dj_cf_search.dj_cf_search_horizontal .search_ex_fields .djseform_field:nth-of-type(3n+1) {
+  	clear: none;
+  	margin-left: @JMbaseSpace;
+  }
+  form.open {
+  	max-width: 100%;
+  }
+}
+
+#jm-allpage .search2-ms.category-ms .dj_cf_search {
+  #form-search .inputbox.first_input,
+  #form-search .inputbox.search-query {
+    padding-left: (@JMsearch2CategoryInputWidth + 25);
+  }
+  #form-search .search_cats {
+    display: block;
+    margin: 0!important;
+    width: @JMsearch2CategoryInputWidth;
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 0;
+    padding: 0;
+    > div {
+      display: none;
+      margin: 0;
+    }
+    > select {
+      color: @JMsearchInputFontColor;
+      border: none;
+      width: 100%!important;
+      margin: 12px;
+    }
+    //chosen
+    .chzn-container.chzn-container-single {
+      display: inline-block;
+    }
+    .chzn-container.chzn-container-single .chzn-single {
+      border: none;
+      height: 60px;
+      line-height: 60px;
+      border-right: 1px solid @JMsearchInputBorder;
+      font-size: 16px;
+      font-weight: 300;
+      color: @JMsearchInputFontColor;
+      padding: 0 55px 0 25px;
+      background: none;
+      span {
+        margin: 0;
+      }
+      div {
+        left: auto;
+        right: 20px;
+        b {
+          margin-top: 19px;
+        }
+      }
+    }
+  }
+}
+
+#jm-allpage .search2-ms { 
+  form.open {
+    .inputbox.first_input,
+  	.inputbox.search-query {
+  		background: @JMinputBackground;
+  		border-bottom: 1px solid @JMsearchInputBorder;
+  	}
+  }
+}
+
+// categories
+
+.jm-box {
+	.cf();
+	margin-bottom: @JMbaseSpace;
+	&.col1 .jm-box-in {
+    width: 100%;
+  }
+  &.col2 .jm-box-in {
+    width: 50%;
+  }
+  &.col3 .jm-box-in {
+    width: 33%;
+  }
+  &.col4 .jm-box-in {
+    width: 25%;
+  } 
+	.jm-box-in {
+		float: left;
+		text-align: center;
+	}
+	.jm-box-space {
+		display: inline-block;
+		vertical-align: top;
+	  margin: @JMbaseSpace 0 0;
+	  padding: 60px;
+	  background: @JMstyle;
+	  .border-radius(50%);
+	  position: relative;
+	  width: 163px;
+	  height: 163px;
+	  .transition(background 0.15s linear);
+	  &:after {
+	  	content: '';
+	  	position: absolute;
+	  	top: -9px;
+	  	left: -9px;
+	  	right: -9px;
+	  	bottom: -9px;
+			border: 3px solid @JMstyle;
+			.border-radius(50%);
+			.transition(all 0.15s linear);
+	  }
+	  &:hover {
+	  	background: darken(@JMstyle, 5%);
+	  }
+	  &:hover:after {
+			top: -3px;
+	  	left: -3px;
+	  	right: -3px;
+	  	bottom: -3px;
+			border: 4px solid lighten(@JMstyle, 8%);
+	  }
+	}
+  .icon {
+  	display: block;
+    margin: 0 0 30px;
+  }
+  .title {
+  	display: block;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: @white;
+  }
+	a {
+		text-decoration: none;
+	}
+}
+
+//header-high
+.header-high {
+  #jm-header-bg + #jm-header-content {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 auto!important;
+    padding-top: @JMbaseSpace;
+    padding-left: 15px;
+    padding-right: 15px;
+    .box-sizing(border-box);
+  }
+  #jm-allpage #jm-header .jm-module.search2-ms {
+    margin-bottom: @JMbaseSpace;
+  }
+  #jm-allpage .search2-ms .jm-advanced-link {
+    color: @JMbodyFont;
+  }
+  #jm-allpage .search2-ms form {
+    border: 1px solid @JMborder;
+  }
+}
+
+@media (max-width: 1730px) {
+  .header-high();
+}
+
+// social 
+.jm-social {
+  text-align: center;
+  position: relative;
+}
+
+.jm-social-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #333333;
+  font-weight: 300;
+  line-height: 1em;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  margin-right: @JMbaseSpace;
+	right: 100%;
+	white-space: nowrap;
+}
+    
+.jm-icons {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 0;
+  margin: 0;
+  position: relative;
+  a {
+    float: left;
+    margin: (@JMbaseSpace/2);
+    text-decoration: none;
+    position: relative;
+    display: block;
+    width: @JMsocialIconSize;
+    height: @JMsocialIconSize;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .border-radius(50%);
+    .box-sizing(border-box);
+    &:after {
+			content: '';
+	  	position: absolute;
+	  	top: 0;
+	  	left: 0;
+	  	right: 0;
+	  	bottom: 0;
+			.border-radius(50%);
+			.transition(all 0.2s ease-in);
+    }
+  }
+  a.jm-facebook {
+    &:after {
+      border: 3px solid #3c599f;
+    }
+    background-image: url('../images/social/facebook.png'); 
+    &:hover {
+      background-color: #3c599f; 
+      background-image: url('../images/social/facebook_hover.png');
+    }   
+  }
+  a.jm-google {
+    &:after {
+      border: 3px solid #d34634;
+    }
+    background-image: url('../images/social/googleplus.png');
+    &:hover {
+      background-color: #d34634;
+      background-image: url('../images/social/googleplus_hover.png');
+    }   
+  }
+  a.jm-twitter {
+    &:after {
+      border: 3px solid #32ccfe;
+    }
+    background-image: url('../images/social/twitter.png');
+    &:hover {
+      background-color: #32ccfe;
+      background-image: url('../images/social/twitter_hover.png');
+    }    
+  }
+  a.jm-pinterest {
+    &:after {
+      border: 3px solid #cb2028;
+    }
+    background-image: url('../images/social/pinterest.png');
+    &:hover {
+      background-color: #cb2028;
+      background-image: url('../images/social/pinterest_hover.png');
+    }
+  }
+}
+
+//google map
+.djmod_map {
+  border: none!important;
+  background: none!important;
+}
+
+// table pricing
+// --------------------------
+
+#jm-allpage table.pricing {
+  float: left;
+  margin: 0 0 @JMbaseSpace;
+  td.price {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: @JMstyle;
+  }
+}
+
+

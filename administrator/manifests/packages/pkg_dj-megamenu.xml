@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="2.5">
+	<name>DJ-MegaMenu Package</name>
+	<packagename>dj-megamenu</packagename>
+	<creationDate>May 2014</creationDate>
+	<author>DJ-Extensions.com</author>
+	<copyright>Copyright (C) 2012 DJ-Extensions.com, All rights reserved.</copyright>
+	<license> http://www.gnu.org/licenses GNU/GPL</license>
+	<authorEmail>contact@dj-extensions.com</authorEmail>
+	<authorUrl>http://dj-extensions.com</authorUrl>
+	<version>2.0.3</version>
+	<url>http://dj-extensions.com</url>
+	<packager></packager>
+	<packagerurl></packagerurl>
+	<description><![CDATA[
+		<style> #right-text {font-family:Arial, Helvetica, sans-serif;	font-size:11px;	} #right-text a:link, #right-text a:visited {color:#4991c1;font-weight:bold; font-size: 13px;} #right-text a:hover {text-decoration:underline;}	#right-text h2 {color:#fa9539;text-transform:uppercase;	font-size:16px;	padding:0;	margin:2px 0;}	#right-text p {padding:0;margin:4px 0;}	#left-logo {float:left;width:270px;height:120px;display:block;} #left-logo img {margin: 40px 20px;} #right-text {float:left;width:400px;}</style>
+	
+		<div id="left-logo">
+			<a target="_blank" href="http://dj-extensions.com"><img src="http://new.dj-extensions.com/templates/dj-extensions/images/logo.png" alt="DJ-Extensions.com" /></a>
+		</div>
+		
+		<div id="right-text">
+			<h2>Thank you for installing DJ-MegaMenu!</h2>
+			<p>The DJ-MegaMenu is a dropdown menu with nice mootools effects and easy themes system. You can add subtitle for each menu item, display submenu in multicolumn layout and display module in submenu.</p>
+			<p>If you want to learn how to use DJ-MegaMenu please read <a target="_blank" href="http://dj-extensions.com/documentation">Documentation</a> and visit our <a target="_blank" href="http://dj-extensions.com/forum">Community Forum</a><br /><br />Check out our other extensions at <a target="_blank" href="http://dj-extensions.com">DJ-Extensions.com</a></p>
+		</div>
+	
+		]]></description>
+	<files>
+	        <file type="plugin" group="system" id="djmegamenu">plg_system_djmegamenu.zip</file>
+	        <file type="module" client="site" id="mod_djmegamenu">mod_djmegamenu.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="DJ-MegaMenu Package">http://dj-extensions.com/updates/djmegamenu.xml</server>
+	</updateservers>
+</extension>

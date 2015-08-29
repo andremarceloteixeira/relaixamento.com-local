@@ -1,0 +1,2495 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+
+@import "bootstrap_variables.less";  
+@import "template_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "template_mixins.less";
+
+// DJ Classifieds
+// -------------------------- 
+
+//copy class btn
+.insert-btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: @baseLineHeight;
+  text-decoration: none;
+  .border-radius(@baseBorderRadius);
+ 
+  //JM added
+  font-size: @JMbuttonFontSize;
+  font-family: inherit;
+  font-weight: 400;
+  color: @JMbuttonFontColor;
+  padding: @JMbuttonPadding;
+  border: none;
+  background: @JMstyleButtonBackground;
+  
+  // Hover/focus state
+  &:hover,
+  &:focus {  
+    //.transition(none);
+    text-decoration: none;
+    color: @JMbuttonFontColor;
+    background: @JMstyleButtonActiveBackground;
+  }
+}
+
+#dj-classifieds div.pagination {
+  padding: 0;
+}
+
+#dj-classifieds .dj-useradverts + div.pagination {
+  padding: @JMbaseSpace 0 0;
+}
+
+#dj-classifieds input[type="radio"], 
+#dj-classifieds input[type="checkbox"] {
+  margin: 0 4px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+#dj-classifieds {
+  .dj-category .cat_row_title,
+  h1.main_cat_title,
+  .dj-cattree-box .title_top,
+  .title_top h1,
+  .dj-additem .title_top,
+  table.paymentdetails td.td_title h2,
+  .profile_outer h2.profile_name {
+    font-family: @JMarticleTitleFontFamily;
+    font-size: @JMarticleTitleFontSize;
+    color: @JMheadingColor;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 @JMbaseSpace;
+    padding: 0 0 0 20px;
+    position: relative;
+    &:after {
+      content: '';
+	    position: absolute;
+	    height: 8px;
+	    width: 8px;
+	    background: @JMheadingBorderColor;
+	    bottom: 6px;
+	    left: 0;
+    }
+  }
+}
+
+// Categories
+// -------------------------- 
+
+//hide categories title and rss icon
+#dj-classifieds .dj-category .cat_row_title {
+	display: none;
+}
+
+//rss icon
+#dj-classifieds a.rss_icon {
+  margin-left: 10px;
+  img {
+    margin-bottom: 4px;
+    vertical-align: middle; 
+  }
+}
+
+//categories
+#dj-classifieds .dj-category {
+	margin: 0 0 @JMbaseSpace;
+	border-bottom: 1px dotted @JMclassifiedsBorder; 
+  .cat_row {
+    padding: 0;
+    margin: 0 -(@JMbaseSpace/2) 0;
+  }
+  .cat_row + .cat_row {
+    padding-top: 0;
+  }
+  .cat_col {
+    float: left;
+  }
+  .cat_col .cat_col_in {
+    padding: 0 (@JMbaseSpace/2) @JMbaseSpace;
+  }
+  .title {
+    text-align: center;
+    img {
+      float: none;
+      display: block;
+      margin: 0 auto 20px;
+      &:hover {
+        .opacity(80);
+        .transition(all 0.2s ease-in);
+      }
+    }
+    h2 {
+      background: @JMclassifiedsCategoriesTitleBackground;
+      color: @JMheadingColor;
+      font-size: @JMclassifiedsCategoriesFontSize;
+      font-weight: 400;
+      margin: 0;
+      padding: 10px;
+      position: relative;
+      .border-radius(@baseBorderRadius);
+      &:after {
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid inset;
+        border-width: 0 9px 9px 9px;
+        border-color: transparent transparent @JMclassifiedsCategoriesTitleBackground transparent;
+        top: -8px;
+        left: 50%;
+        right: auto;
+        margin-left: -9px;
+        display: none;
+      }
+    }
+    a + .cat_title_desc h2:after {
+      display: block;
+    }
+  }
+}
+
+#dj-classifieds .dj-category {
+  &.cat_cols1 .cat_col {
+    width: 100%;
+  }
+  &.cat_cols2 .cat_col {
+    width: 50%;
+  }
+  &.cat_cols3 .cat_col {
+    width: 33.3%;
+  }
+  &.cat_cols4 .cat_col {
+    width: 25%;
+  }
+  &.cat_cols5 .cat_col {
+    width: 20%;
+  }
+  &.cat_cols6 .cat_col {
+    width: 16.6%;
+  }
+  &.cat_cols7 .cat_col {
+    width: 14.2%;
+  }
+  &.cat_cols8 .cat_col {
+    width: 12.5%;
+  }
+  &.cat_cols9 .cat_col {
+    width: 11.1%;
+  }
+  &.cat_cols10 .cat_col {
+    width: 50%;
+  }
+}
+
+#dj-classifieds h1.main_cat_title .main_cat_title_path {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.1;
+  a {
+    color: #999;
+  }
+}
+
+#dj-classifieds .main_cat_desc{
+  margin: 10px 0;
+  text-align: center;
+}
+
+#dj-classifieds h1.main_cat_title + .dj-category .cat_row_title {
+    display: none;
+}
+
+// Table
+// -------------------------- 
+
+#dj-classifieds .items {
+	margin: -@JMbaseSpace 0 0;
+	display: inline-block;
+	width: 100%;
+}
+
+#dj-classifieds table.dj-items {
+  clear: both;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0 @JMbaseSpace;
+  td.name a,
+  tr.special td a {
+    font-weight: 400;
+    font-size: @JMclassifiedsTableTitleFontSize;
+    color: @JMheadingColor;
+    &:hover {
+      color: @JMstyle;
+    }
+  }
+}
+
+//table heading
+#dj-classifieds table.dj-items .main_title th {
+  color: @JMtableHeadFontColor;
+  text-align: center!important;
+  white-space: nowrap;
+  padding: 15px 8px;
+  font-weight: 400;
+  background: @JMtableHeadBackground;
+  border-left: 1px solid @JMtableHeadBackgroundHover;
+  a {
+    color: @JMtableHeadFontColor;
+    text-decoration: none;
+    img {
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+    &.normal {
+      margin: 0!important;
+    }
+  }
+  &:first-child {
+    border-left: none;
+  }
+  &:hover,
+  &.active {
+    background: @JMtableHeadBackgroundHover;
+  }
+  &:first-child {
+  	.border-top-left-radius(@JMtableBorderRadius);
+  	.border-bottom-left-radius(@JMtableBorderRadius);
+  }
+  &:last-child {
+  	.border-top-right-radius(@JMtableBorderRadius);
+  	.border-bottom-right-radius(@JMtableBorderRadius);
+  }
+}
+
+//table cell
+#dj-classifieds table.dj-items td {
+  font-weight: 400;
+  border-top: 1px solid @JMclassifiedsBorder;
+  border-bottom: 1px solid @JMclassifiedsBorder;
+  border-right: 1px dotted @JMclassifiedsBorder;
+  padding: 20px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  &:first-child {
+    border-left: 1px solid @JMclassifiedsBorder;
+    width: auto!important;
+    .border-top-left-radius(@JMtableBorderRadius);
+  	.border-bottom-left-radius(@JMtableBorderRadius);
+  } 
+  &:last-child {
+    border-right: 1px solid @JMclassifiedsBorder;
+    .border-top-right-radius(@JMtableBorderRadius);
+  	.border-bottom-right-radius(@JMtableBorderRadius);
+  }
+  h3 {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  &.icon {
+    img {
+      max-width: none;
+    }
+  }
+  &.price {
+    font-size: @JMclassifiedsTablePriceFontSize;
+    line-height: 1.1;
+    color: @JMheadingColor;
+    white-space: nowrap;
+  }
+  &.description {
+    font-weight: normal;
+  }
+  img.fav_ico,
+  img.prom_ico {
+    display: block;
+    margin: 0 auto 5px;
+  }
+  img.prom_ico {
+    display: none;
+  }
+  span.new_icon,
+  span.type_button {
+    margin: 10px 0 0!important;
+  }
+}
+
+//distance column
+#dj-classifieds table.dj-items .col_distance{
+  vertical-align: middle;
+  .show_distance,
+  .show_on_map {
+    overflow: hidden;
+    position: relative;
+    min-width: 54px; 
+    min-height: 37px;
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .show_distance {
+    margin-top: 0px;
+    height: auto;
+  }
+  .show_on_map span {
+    background: url('../images/classifieds/show_on_map.png') top center no-repeat;
+    display: inline-block;
+    min-width: 54px; 
+    min-height: 37px;    
+  }
+  .show_distance span {
+    background: url('../images/classifieds/show_distance.png') center center no-repeat;
+    display: block;
+    min-width: 52px; 
+    min-height: 40px;
+    cursor: pointer; 
+    vertical-align: middle;
+    position: relative;
+  }
+  .show_distance span,
+  .show_on_map span {
+    &:before {
+      content: attr(data-hover);
+      position: absolute;
+      top: 100%;
+      text-align: center;
+      width: 100%;
+      height: 100%;    
+      left: 0px;
+      right: auto;
+      line-height: 1.1;
+      .translate3d(0,0,0);
+    }
+  }
+  .show_distance span,
+  .show_on_map span {
+    position: relative;
+    .transition(transform 0.3s);
+  }
+  &:hover {
+  	.show_distance span,
+	  .show_on_map span {
+	  	.translateY(-100%);
+	  }
+  }
+}
+
+//table promotions
+#dj-classifieds table.dj-items {
+  tr.promotion.p_bg td {
+      background: @JMclassifiedsPromoBackground;
+  }
+  tr.promotion.p_border td {
+      border-bottom: 1px dotted @JMclassifiedsPromoBorderColor;
+      border-top: 1px dotted @JMclassifiedsPromoBorderColor;
+      border-right: 1px dotted @JMclassifiedsPromoBorderColor;
+      border-left: none;
+      &:first-child {
+        border-left: 1px dotted @JMclassifiedsPromoBorderColor;
+      }
+      &:last-child {
+        border-right: 1px dotted @JMclassifiedsPromoBorderColor;
+      }
+  }
+  tr.promotion.p_bold td {
+    font-weight: bold;
+    &.name a {
+      font-weight: bold;
+    }
+  }
+}
+
+//promo special
+#dj-classifieds table.dj-items tr.p_special td:first-child {
+	position: relative;
+	overflow: auto;
+	&:after {
+		content: '';
+    position: absolute;
+    top: -1px;
+    right: auto;
+    left: -1px;
+    width: 83px;
+    height: 83px;
+    background: url("../images/featured_RTL.png");
+    pointer-events: none;
+  }
+}
+
+// Blog
+// -------------------------- 
+
+//sorting
+#dj-classifieds .blog_sorting_box {
+  margin: 0 0 @JMbaseSpace;
+  #blogorder_select {
+    min-width: 250px;
+  }
+}
+
+//new icon
+#dj-classifieds span.new_icon {
+  display: inline-block;
+  background: #b81a00;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin: 2px;
+}
+
+//blog grid
+#dj-classifieds .djcf_items_blog {
+  margin-left: -(@JMbaseSpace/2);
+  margin-right: -(@JMbaseSpace/2);
+  .item_box {
+      float: left;
+  }
+  .item_box_in {
+    margin: 0 0 @JMbaseSpace;
+    padding: 0 (@JMbaseSpace/2)  @JMbaseSpace;
+    border-bottom: 1px dotted @JMclassifiedsBorder;
+  }
+  .item_box_in2 {
+  	.box-sizing(border-box);
+  }
+  .title {
+    color: @JMheadingColor;
+    margin-bottom: 10px;
+    padding: 0 0 10px;
+    h2 {
+      display: inline;
+      margin-right: 5px;
+      vertical-align: middle;
+      line-height: @JMclassifiedsBoxTitleLineHeight;
+      font-size: @JMclassifiedsBoxTitleFontSize;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+  .item_img {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .item_box_right .item_img {
+    float: left;
+    padding-right: 20px;
+  }
+  .item_img + .item_desc {
+    display: table-cell;
+  }
+  .item_box_bottom .item_desc {
+    display: block;
+  }
+  .item_desc .label_title {
+    display: block;
+    padding-left: @JMbaseSpace;
+    line-height: 20px;
+  }
+  span.desc_info {
+    display: block;
+    padding-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: @JMbaseSpace;
+  }
+  img.fav_ico {
+    vertical-align: middle;
+  }
+}
+
+//blog icons
+#dj-classifieds .blog_det {
+  .item_desc .label_title,
+  .region, 
+  .category,
+  .price,
+  .cf_box {
+    font-weight: 400;
+    color: @JMheadingColor;
+    border-bottom: 1px dotted;
+    margin: 0 0 15px;
+    padding-bottom: 15px;
+    font-size: @JMclassifiedsBoxLabelsFontSize;
+    line-height: 1.2;
+  }
+  .category a {
+    text-decoration: none;
+  }
+  .item_desc .label_title {
+    border: none;
+    margin: 0;
+  }
+  div:nth-last-child(2) {
+    border: none;
+  }
+  .region,
+  .category, 
+  .price {
+    .label_title {
+      height: 20px;
+      width: 20px;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+  .cf_box .label_title {
+    height: 20px;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 5px;
+  }
+  .region,
+  .category,  
+  .price,
+  .cf_box {
+    border-color: @JMclassifiedsBorder;
+  }
+}
+
+#dj-classifieds {
+  .djcf_items_blog .item_desc .label_title,
+  .blog_det .price .label_title,
+  .blog_det .region .label_title,
+  .blog_det .category .label_title,
+  .blog_det .cf_box .label_title {
+    background-position: left top;
+    background-repeat: no-repeat;
+  }
+}
+
+#dj-classifieds {
+  .djcf_items_blog .item_desc .label_title {
+    background-image: url("../images/@{JMimgDir}/desc.png");
+  }
+  .blog_det .price .label_title {
+    background-image: url("../images/@{JMimgDir}/price.png");
+  }
+  .blog_det .region .label_title {
+    background-image: url("../images/@{JMimgDir}/region.png");
+  }
+  .blog_det .category .label_title {
+    background-image: url("../images/@{JMimgDir}/category.png");
+  }
+  .blog_det .cf_box .label_title {
+    background-image: url("../images/@{JMimgDir}/details.png");
+  }
+}
+
+//blog promotions
+#dj-classifieds .djcf_items_blog {
+  .promotion.p_bg {
+	  .item_box_in2 {
+      background: @JMclassifiedsPromoBackground;
+      padding: 15px;
+      padding-top: 8px;
+	  }
+	 }
+  .promotion.p_border {
+    position: relative;
+    .item_box_in2 {
+      padding: 14px;
+      padding-top: 8px;
+      border: 1px dotted @JMclassifiedsPromoBorderColor;
+    }
+    .blog_det .category,
+    .blog_det .region, 
+    .blog_det .price,
+    .blog_det .cf_box {
+      border-color: @JMclassifiedsPromoBorderColor;
+    }
+  }
+  .promotion.p_bold {
+    font-weight: bold;
+  }
+  .promotion.p_special {
+    .item_box_in2 {
+      position: relative;
+    }
+    span.p_special_img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: auto;
+      width: 83px;
+      height: 83px;
+      background: url("../images/featured.png");
+      pointer-events: none;
+    }
+  }
+}
+
+//see details
+#dj-classifieds .see_details_box a {
+  .insert-btn();
+  display: block;
+}
+
+// Category Tree
+// -------------------------- 
+
+#dj-classifieds .dj-cattree-box {
+  &.cols1 .dj-cattree {
+    width: 100%;
+  }
+  &.cols2 .dj-cattree {
+    width: 50%;
+  }
+  &.cols3 .dj-cattree {
+    width: 33.3%;
+  }
+  &.cols4 .dj-cattree {
+    width: 25%;
+  }
+  &.cols5 .dj-cattree {
+    width: 20%;
+  }
+  .dj-cattree {
+    float: left;
+    margin: 10px 0;
+    li {
+      padding: 0 15px 0 0;
+      background: none;
+      a img.cat_tree_icon {
+        height: 25px;
+        margin: 3px 5px 3px 0;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// User adverts / items
+// -------------------------- 
+
+#dj-classifieds .dj-useradverts {
+  .main_title {
+    .main_title_box_in {
+      color: @JMtableHeadFontColor;
+      text-align: center!important;
+      white-space: nowrap;
+      padding: 15px 8px;
+      font-weight: 400;
+      background: @JMtableHeadBackground;
+      border-left: 1px solid @JMtableHeadBackgroundHover;
+      &:hover {
+        background: @JMtableHeadBackgroundHover;
+      }  
+    }
+    .main_title_box {
+    	&:first-child .main_title_box_in {
+		  	.border-top-left-radius(@JMtableBorderRadius);
+		  	.border-bottom-left-radius(@JMtableBorderRadius);
+		  }
+		  &:nth-last-child(2) .main_title_box_in {
+		  	.border-top-right-radius(@JMtableBorderRadius);
+		  	.border-bottom-right-radius(@JMtableBorderRadius);
+		  }
+    }
+    a {
+      color: @JMtableHeadFontColor;
+      text-decoration: none;
+      img {
+        margin: 0 8px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .main_title_box {
+    width: 20%;
+    float: left;
+    overflow: hidden;
+    &:first-child {
+      width: 40%;
+      .main_title_box_in {
+        border-left: none;
+      }
+    }
+  }
+  .row_ua {
+    margin: @JMbaseSpace 0 0;
+    border: 1px solid @JMclassifiedsBorder;
+    .box-sizing(border-box);
+    .border-radius(@JMtableBorderRadius);   
+    .row_ua1 {
+      border-bottom: 1px solid @JMclassifiedsBorder;
+      .row_ua1_in {
+        display: table;
+        width: 100%;
+      }
+      .col_ua {
+        padding: 20px;
+        border-left: 1px dotted @JMclassifiedsBorder;
+        display: table-cell;
+        .box-sizing(border-box);
+        &:first-child {
+          border-left: none;
+        } 
+      }
+      .icon_name {
+        width: 45%;
+        .icon {
+          float:left;
+          margin-right: @JMbaseSpace;
+        }
+        .title {
+          font-weight: 400;
+          font-size: @JMclassifiedsTableTitleFontSize;
+          color: @JMheadingColor;
+          text-decoration: none;
+        }
+        .c_name {
+          font-size: 0.9em;
+          display: block;
+          margin-top: 3px;
+        }
+      }
+      .col_ua_row + .col_ua_row {
+        margin: 10px 0 0;
+      }
+      .public_status {
+        width: 45%;
+        vertical-align: middle;
+      } 
+      .advert_active {
+        width: 10%;
+        vertical-align: middle;
+      }
+    }
+    .row_ua2 { 
+      padding: 20px;
+      text-align: right;
+      .row_ua2_in {
+        margin: -5px 0 0;
+        .button {
+          margin: 5px 0 0 10px;
+        }
+      }
+    } 
+  } 
+}
+
+#dj-classifieds .dj-useradverts a.button {
+  margin: 5px;
+}
+
+// Add Item
+// -------------------------- 
+
+#dj-classifieds .dj-additem {
+  form {
+    padding:0;
+    margin: 0;
+  }
+  .additem_djform {
+    margin-bottom: 20px;
+  }
+  .djform_row {
+    border-bottom: 1px dotted @JMclassifiedsBorder;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  .label {
+    background: none;
+    text-shadow: none;
+    color: inherit;
+    font-size: inherit;
+    .border-radius(0);
+    padding: 0;
+  }
+  .label {
+    display: inline-block;
+    font-weight: bold;
+    text-align: right;
+    width: 25%;
+    .box-sizing(border-box);
+    padding: 10px;
+    margin: 0;
+    vertical-align: middle;
+    span {
+      font-size: 0.9em;
+      font-weight: normal;
+      line-height: 1.5;
+      white-space: normal;
+    }
+    img {
+      vertical-align: top;
+    }
+  }
+  .djform_row.extra_fields {
+    margin: 0;
+    padding: 0;
+    border: none;
+    .radiofield_box,
+    .radiofield_box div {
+      float: none!important;
+    }
+  }
+  .djform_field {
+    display: inline-block;
+    width: 70%;
+    .box-sizing(border-box);
+    vertical-align: middle;
+    img {
+      margin: 5px;
+    }
+    span.radio_label {
+    margin: 0 0 0 7px;
+      vertical-align: middle;
+    } 
+  }
+  #after_cat_0 select,
+  #after_reg_0 select{
+    margin-top: 5px;
+  }
+  .mce-container {
+    max-width: 400px;
+    border-color: @JMinputBorder;
+  }
+  .terms_and_conditions {
+    text-align: center;
+    > label {
+      display: none;
+    }
+    .label_terms {
+      font-weight: bold;
+      margin: 0 5px;
+      display: inline-block;
+    }
+    .djform_field {
+      width: 100%;
+    }
+  }
+  .djform_row .toggle-editor {
+    float: none;
+  }
+}
+
+//messages
+#dj-classifieds .dj-additem {
+  #guest_email_info,
+  #verification_alert,
+  #imageslimitalert,
+  #mapalert {
+    color: #FF0000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+  }
+  #mapalert{
+    margin-top:20px;
+  }
+  #guest_email_loader{
+    display: none; 
+    margin: 5px 0 0 10px;
+    vertical-align: top;
+  }
+}
+
+//form submit buttons
+#dj-classifieds .dj-additem {
+  .classifieds_buttons {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    .button {
+      margin: 0 10px;
+    }
+  }
+}
+
+//price
+#dj-classifieds .dj-additem {
+  .price_neg_box {
+    margin: 5px 0 0;
+    span {
+      margin-left: 5px;
+    }
+  }
+  select.price_currency {
+    width: 100px;
+  }
+}
+
+//map intro
+#dj-classifieds .dj-additem .djmap_intro {   
+    margin-bottom:20px;
+    text-align: center;
+    .button {
+      .insert-btn();
+      cursor:pointer;
+      display: inline-block;
+      margin: 10px 5px 0;
+    }
+  .djmap_intro_desc {
+    text-align: center;
+  }
+}
+
+#dj-classifieds .dj-additem #djmap {
+  width: 85%!important;
+  height: 300px!important;
+  margin: 0 auto;
+  img { 
+    max-width: none;
+  }
+  label { 
+    width: auto;
+    display:inline; 
+  }
+}
+
+//images
+#dj-classifieds .dj-additem .images_box {
+  .img_info {
+    margin-bottom: 15px;
+    .img_info_row{
+      margin-bottom: 5px;
+    }
+    span{
+      font-weight: bold;
+    }
+  }
+  .additem_djform_in {
+    padding: 0;
+  }
+  #itemImagesWrap {
+      margin: 0 0 20px 0;
+  }
+  #itemImages .itemImage {
+    position: relative;
+    float: left;
+    margin: 0 2px 2px 0;
+    overflow: hidden;
+    max-width: 100%;
+    img {
+      float: none;
+      margin: 0;
+      padding: 0;
+      height: 150px;
+      max-width: 600px;
+    }
+    .imgMask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: auto;
+      width: 100%;
+      height: 150px;
+      background: url('../images/classifieds/img_bg.png') repeat;
+      .opacity(0);
+      .transition(opacity 0.2s ease-out);
+      cursor: move;
+      input.editTitle {
+        background: transparent url('../images/classifieds/img_edit.png') 6px center no-repeat;
+      }
+      .delBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 32px;
+        height: 32px;
+        background: url('../images/classifieds/img_delete.png') no-repeat;
+        cursor: pointer;
+        .opacity(50);
+        .transition(opacity 0.2s ease-out);
+        &:hover {
+          .opacity(100);
+        }
+      }
+    }
+    &:hover,
+    &.active {
+      .imgMask {
+        .opacity(100);
+      }
+    }
+    input.itemInput {
+      position: absolute;
+      bottom: 0;
+      .box-sizing(border-box);
+      padding: 6px 6px 6px 28px;
+      margin: 0;
+      border: 0;
+      width: 100%;
+      background-color: transparent;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      .transition(all 0.2s ease-out);
+      border-radius: 0;
+      box-shadow: none;
+      height: auto;
+      border: none !important;
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+        .box-shadow(none);
+      }
+    }
+  }
+}
+
+//invalid inputs
+#dj-classifieds .dj-additem {
+  .label.invalid {
+    color: #ff0000;
+  }
+  input.invalid,
+  select.invalid,
+  textarea.invalid {
+    border: 1px solid #ff0000;
+  }
+}
+
+//inputs width
+#dj-classifieds .dj-additem {
+  input[type="text"],
+  .djform_row select,
+  .djform_row textarea {
+    max-width: 400px;
+    width: 100%!important;
+    .box-sizing(border-box);
+  }
+}
+
+//promo
+#dj-classifieds .dj-additem .prom_rows {
+  .promotions_info {
+    font-weight: normal;
+    font-size: 14px;
+    color: #999;
+  }
+  .label {
+    width: 25%;
+    margin: 0;
+  }
+  .djform_field {
+    width: 74%;
+  }
+  .djform_prom_v,
+  .djform_prom_img,
+  .djform_prom_desc {
+    float: left;
+    padding-left: 20px;
+    .box-sizing(border-box);
+  }
+  .djform_prom_v {
+    width: 28%;
+    padding-top: 20px;
+    label{
+      display:inline-block;
+      margin: 0 5px;
+      vertical-align: middle;
+    }
+  }
+  .djform_prom_img {
+    width: 25%;
+  }
+  .djform_prom_desc  {
+    width: 47%;
+  }
+}
+
+
+//renew
+#dj-classifieds .dj-renewitem .djform_field_category{
+  padding-top: 5px;
+}
+
+// Single Advert
+// -------------------------- 
+
+//advert title
+#dj-classifieds .dj-item .title_top {
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  position: relative;
+  text-align: left;
+  border-bottom: 1px dotted @JMclassifiedsBorder;
+  h2 {
+    display: inline;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    color: @JMheadingColor;
+    font-size: 22px;
+    font-weight: 400;
+  }
+  a {
+    text-decoration: none!important;
+    margin: 0 2px;
+  }
+  .sb_top {
+    float: right;
+    margin: 6px 0 0;
+    min-width: 170px;
+  }
+  .title_edit {
+    margin: 1px 0 1px 10px;
+    float: right;
+    vertical-align: middle;
+    background-image: none;
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 25px;
+    cursor: pointer;
+    .transition(none);
+  }
+  span.new_icon, 
+  img.fav_ico {
+    vertical-align: middle;
+    margin: 0 2px;
+  }
+  .fav_label,
+  .nfav_label {
+    display: inline-block;
+    margin-top: 1px;
+    font-size: 13px;
+    vertical-align: middle;
+    line-height: 21px;
+    margin: 0 5px;
+    color: #5F5F5F;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .fav_label {
+    color: #fccc00;
+  }
+}
+
+//images
+#dj-classifieds .dj-item .images_wrap {
+  float: left;
+  max-width: 100%;
+  .images .djc_images {
+    padding: 20px;
+    background: @JMclassifiedsImagesBackground;
+  }
+  .djc_mainimage a {
+    display: block;
+  }
+  .djc_thumbnails {
+    margin: 10px 0 0;
+  }
+  .djc_thumbnails .djc_thumbnail {
+    float: left;
+    a {
+      display: block;
+    }
+    img {
+      padding-left: 1px;
+      .box-sizing(border-box);
+    }
+    &:first-child img {
+      padding: 0;
+    }
+  }
+}
+
+//details
+#dj-classifieds .dj-item .general_det {
+  float: right;
+  &.no_images {
+    width: 100%;
+  }
+  span.row_label {
+    border-bottom: 1px dotted @JMclassifiedsBorder;
+    padding: 0 0 10px @JMbaseSpace;
+    display: block;
+    margin: 0 0 10px;
+  }
+}
+
+//space between advert parts
+#dj-classifieds .dj-item {
+  .localization_det,
+  .custom_det, 
+  .images, 
+  .intro-description,
+  .description,
+  .video_box,
+  .ask_form_abuse_outer {
+    margin-bottom: @JMbaseSpace;
+  }
+}
+
+//left padding for details
+#dj-classifieds .dj-item {
+  .description .desc_content,
+  .intro-description .intro_desc_content,
+  .description .intro_desc_content,
+  .custom_det .row,
+  .additional .row,
+  .localization_det .row,
+  .general_det .row_value,
+  #google_map_box,
+  .fb_iframe_widget {
+    padding-left: @JMbaseSpace;
+    display: block;
+  }
+}
+
+//margin for rows
+#dj-classifieds .dj-item {
+  .row_gd,
+  .row {
+    margin: 0 0 @JMbaseSpace;
+  }
+}
+
+//contact part
+#dj-classifieds .dj-item .general_det .djcf_contact {
+  margin: 0;
+  .contact_mainrow,
+  .contact_row {
+    margin: 0 0 @JMbaseSpace;
+  }
+  .contact_row .row_label {
+    background: none;
+    border: none;
+    margin: 0;
+    display: block;
+    line-height: normal;
+  }
+  .contact_row .row_value {
+    display: block;
+  }
+}
+
+//profile
+#dj-classifieds .dj-item .profile_item_box {
+  .profile_img {
+    display: block;
+    padding: 0 0 5px;
+  }
+  .profile_name_data {
+    display: inline-block;  
+  }
+  .profile_row {
+    margin: 0 0 10px;
+  }
+  .profile_row .profile_row_label {
+    display: block;
+  }
+}
+
+#dj-classifieds .dj-additem .djform_field .radiofield_box,
+#dj-classifieds .dj-additem .djform_field .radiofield_box div {
+  float: none !important;
+}
+
+//labels
+#dj-classifieds .dj-item span.row_label {
+  font-weight: 400;
+  color: @JMheadingColor;
+}
+
+#dj-classifieds .dj-item .general_det {
+  span.row_label {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+//icons
+#dj-classifieds {
+.dj-item .general_det .djcf_contact span.row_label,
+  .dj-item .general_det .added span.row_label,
+  .dj-item .general_det .user_name span.row_label,
+  .dj-item .intro-description h2,
+  .dj-item .description h2,
+  .dj-item .custom_det h2,
+  .dj-item .localization_det h2,
+  .dj-item .additional h2,
+  .dj-item .video_box h2,
+  .dj-item .djcf_comments h2 {
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+}
+
+#dj-classifieds {
+.dj-item .general_det .djcf_contact span.row_label {
+    background-image: url("../images/@{JMimgDir}/contact.png");
+  }
+  .dj-item .general_det .added span.row_label {
+    background-image: url("../images/@{JMimgDir}/added.png");
+  }
+  .dj-item .general_det .user_name span.row_label {
+    background-image: url("../images/@{JMimgDir}/created.png");
+  }
+  .dj-item .intro-description h2 {
+    background-image: url("../images/@{JMimgDir}/motto.png");
+  }
+  .dj-item .description h2 {
+    background-image: url("../images/@{JMimgDir}/desc.png");
+  }
+  .dj-item .custom_det h2 {
+    background-image: url("../images/@{JMimgDir}/details.png");
+  }
+  .dj-item .localization_det h2 {
+    background-image: url("../images/@{JMimgDir}/region.png");
+  }
+  .dj-item .additional h2 {
+    background-image: url("../images/@{JMimgDir}/additional.png");
+  }
+  .dj-item .video_box h2 {
+    background-image: url("../images/@{JMimgDir}/video.png");
+  }
+  .dj-item .djcf_comments h2 {
+    background-image: url("../images/@{JMimgDir}/comments.png");
+  }
+}
+
+//price
+#dj-classifieds .dj-item .general_det .price_wrap {
+  line-height: 1.5;
+  .row_value {
+    padding-left: 10px;
+  }
+  span.row_label {
+    padding: 0 0 0 @JMbaseSpace;
+    border: none;
+    display: inline-block;
+    line-height: 20px;
+    margin: 0;
+    font-size: 1.4em;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-image: url("../images/@{JMimgDir}/price.png");
+  }
+  span.row_value {
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+  .row_negotiable {
+    margin: 5px 0 0 0;
+    text-align: center;
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+  }
+}
+
+//abuse and contact form
+#dj-classifieds #ask_form {
+  width: 100%;
+  label.invalid{
+    color: #ff0000;
+  }
+}
+
+#dj-classifieds form#djForm,
+#dj-classifieds div#abuse_form form#djabuseForm {
+  margin: 10px 0 0;
+}
+
+#dj-classifieds #djabuseForm {
+  br {
+    height: 0;
+    clear: both;
+  }
+  label + br {
+    display: none;
+  }
+}
+
+#dj-classifieds #ask_form,
+#dj-classifieds #djabuseForm {
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    display: block;
+  }
+  input,
+  textarea {
+    max-width: 100%;
+    width: 400px;
+    .box-sizing(border-box);
+    margin-bottom: 10px;
+  }
+}
+
+#dj-classifieds .ask_form_abuse_outer {
+	.button {
+		margin: 2px;
+	}
+}
+
+#dj-classifieds .button#abuse_form_button {
+	border: 1px solid @JMpaginationBorderColor;
+	background: none;
+	color: @JMpaginationFontColor;
+	font-size: 13px;
+	padding: (@JMbuttonPaddingTop - 1) @JMbuttonPaddingright (@JMbuttonPaddingBottom - 1) @JMbuttonPaddingLeft;
+	&:hover {
+		background: @JMstyle;
+		border-color: transparent;
+		color: @JMpaginationActiveFontColor;
+	}
+}
+
+#dj-classifieds .dj-item {
+  .intro-description,
+  .description,
+  .custom_det,
+  .localization_det,
+  .additional,
+  .video_box,
+  .djcf_comments {
+    h2 {   
+      border-bottom: 1px dotted @JMclassifiedsBorder;
+      font-size: 16px;
+      color: @JMheadingColor;
+      font-weight: 400;
+      line-height: 20px;
+      margin: 0 0 10px;
+      padding: 0 0 10px @JMbaseSpace;
+    }
+  }
+}
+
+
+
+
+//description
+#dj-classifieds .dj-item .description {
+  clear: both;
+}
+
+//localization
+#dj-classifieds .dj-item .localization_det {
+  float: right;
+  width: 47%;
+  margin-left: 3%;
+  .row {
+    margin-bottom: 15px;
+  }
+  #google_map_box #map {
+    max-width: 100%;
+    img {
+      max-width: none;
+      .box-sizing(content-box);
+    }
+  }
+  form.gm_drive_dir {
+    margin: 0;
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .inputbox {
+      margin: 0 0 5px;
+      .box-sizing(border-box);
+      max-width: 195px;
+    }
+  }
+  .gm_drive_dir_l {
+    padding-top: 5px;
+    display: inline-block;
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      background: url("../images/classifieds/show_on_map.png") no-repeat center top;
+      display: inline-block;
+      height: 37px;
+      margin: 0 5px;
+      vertical-align: middle;
+      width: 54px;
+      cursor: auto;
+    }
+  }
+  .geo_coordinates,
+  .map_info{
+    margin-top: 10px;
+  }
+  .geo_coordinates span {
+    white-space: nowrap;
+    margin-left: 2px;
+  }
+  .gm_drive_dir input.button {
+    display: inline-block;
+    width: auto!important;
+    margin-bottom: 5px;
+    margin-left: 7px;
+  }
+}
+
+//specific details
+#dj-classifieds .dj-item  .custom_det {
+  float: left;
+  width: 47%;
+  margin-right: 3%;
+  .row {
+    margin: 0 0 10px;
+  }
+  span.row_label {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+//video box
+#dj-classifieds .dj-item .video_box {
+  float: left;
+  width: 100%; 
+  h2 {
+    margin: 0 0 15px;
+  }
+  .row{
+    text-align: center;
+    margin-bottom: 0px;
+  }
+}
+
+#dj-classifieds .videoWrapper {
+  margin: 0 auto;
+  max-width: 600px; /* video width */
+  .videoWrapper-in {
+    position: relative;
+    padding-bottom: 56.25%; /* ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    iframe,
+    object,
+    embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: auto;
+      width: 100%;
+      height: 100%;
+    } 
+  }
+}
+ 
+//additional
+#dj-classifieds .dj-item .additional {
+  clear: both;
+  .row {
+    margin: 0 0 5px;
+  }
+}
+
+#jm-allpage #dj-classifieds .dj-item .additional {
+	margin: 0 0 @JMbaseSpace;
+	span.row_label {
+		margin-right: 5px;
+		margin-bottom: 0;
+		padding: 0;
+		font-size: inherit;
+		display: inline-block;
+		border: none;
+	}
+	span.row_value {
+		display: inline;
+		padding: 0;
+	}
+}
+
+//comments
+#dj-classifieds .dj-item .djcf_comments {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+
+//pagebreak
+#dj-classifieds .dj-item-in .intro_desc_content + .djcf_tabs {
+  margin: @JMbaseSpace 0 0;
+}
+
+#dj-classifieds .nav-tabs .nav-toggler {
+  cursor: pointer;
+}
+
+#dj-classifieds .nav-tabs .nav-toggler.active {
+  cursor: auto;
+}
+
+//component bottom position
+
+#dj-classifieds .dj-item .sb_bottom {
+  margin: 20px;
+  float: left;
+  width: 100%;
+}
+
+//djcf-ad-item-bottom
+#dj-classifieds .djcf-ad-item-bottom {
+	margin: @JMbaseSpace 0 0;
+}
+
+
+// Search view
+// -------------------------- 
+
+#dj-classifieds .search_res_details {
+    padding: 0 0 10px;
+}
+
+
+
+// User Points
+// -------------------------- 
+
+#dj-classifieds .userpoints .points_available {
+  text-align: right;
+  font-size: 1.2em;
+  padding-right: 5px;
+  margin: 10px 0;
+  span{
+    font-weight: bold;
+    display: inline-block;
+  }
+}
+
+.djcf_user_points .djcf_upoints_box,
+.jm-module.white-ms .djcf_user_points .djcf_upoints_box {
+    border-bottom: 1px solid @JMborder;
+}
+
+// User Profile
+// -------------------------- 
+
+#dj-classifieds .profile_outer {
+  .profile_box {
+    display: table;
+    width: 100%;
+  }
+  .profile_img {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+  .profile_name_data {
+    display: table-cell;
+    vertical-align: top;   
+  }
+  .profile_name_data .profile_data {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: @JMbaseSpace;
+  }
+  .profile_row {
+    clear: both;
+  }
+  .profile_row_label {
+    .box-sizing(border-box);
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    text-align: right;
+    width: 25%;
+    vertical-align: middle;
+  }
+  .profile_row_value {
+    float: left;
+    width: 75%;
+    padding: 10px;
+    .box-sizing(border-box);
+    vertical-align: middle;
+  }
+}
+
+// Points Packages
+// -------------------------- 
+
+#dj-classifieds .pointspackages .pp_price {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#dj-classifieds .pointspackages table.paymentdetails td.table_payment table td.td2 {
+  border-left: none;
+  width: 70%;
+}
+
+#dj-classifieds .pointspackages h3 {
+  font-size: 1.3em;
+  margin: 0 0 10px 0;
+}
+
+#dj-classifieds table.paymentdetails {
+  width: 100%;
+  &.first {
+    margin-bottom: 20px;
+  }
+  .payment_td {
+    border: 1px solid @JMclassifiedsBorder;
+  }
+  td.td_pdetails {
+    padding: 20px 0 0;
+    div.pd_row {
+      padding: 10px 0 0;
+      margin-top: 10px;
+      border-top: 1px solid @JMclassifiedsBorder;
+      display: inline-block;
+      width: 100%;
+      &:first-child {
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+      .djcfpay_label {
+        font-weight: bold;
+      }
+    }
+    div.pd_row_total {
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-weight: bold;
+      background: darken(@JMallpageBackground, 5%);
+      span {
+        float: none;
+        padding: 0;
+      }
+    }
+    div span {
+      float: left;
+      padding: 0 20px;
+    }
+    div span.price {
+      float: right;
+    }
+  }
+  td.td_title {
+    background: none;
+    font-weight: normal;
+    padding: 0;
+    line-height: 1.5;
+    border-bottom: none;
+    border-top: none;
+  }
+  .table_payment {
+    padding: 10px 0 0;
+     table td {
+      vertical-align: middle;
+    }
+    table td.td1 img,
+    table td.td3 img {
+      vertical-align: middle;
+    }
+    table td.td2 {
+      border-left: 1px solid @JMclassifiedsBorder;
+      border-right: 1px solid @JMclassifiedsBorder;
+      padding: 20px;
+      vertical-align: top;
+      table {
+        margin-top: 10px;
+        th {
+          text-align: left;
+        }
+        select,
+        input {
+          margin: 5px;
+        }
+      }
+    }
+    table td.td2 {
+      padding: 20px;
+    }
+    table div.email_box span {
+      margin: 10px 0 5px;
+      display: block;
+    }
+    table div.email_box input.validate-email {
+      width: 200px;
+    }
+  }
+}
+
+#dj-classifieds table.paymentdetails td.table_payment a.button {
+  margin: 5px;
+}
+
+// Module Items
+// -------------------------- 
+
+.mod_djclassifieds_items {
+  .items {
+    margin-left: -(@JMbaseSpace/2);
+    margin-right: -(@JMbaseSpace/2);
+  }
+  .item {
+    display: inline-block;
+    width:100%;
+    margin: @JMbaseSpace 0 0;
+    padding: 0;
+    position: relative;
+    &:first-child {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .items-col {
+    float: left;
+    .icol-in {
+      padding: 0 (@JMbaseSpace/2) 0;
+    }
+  }
+  
+  .items-cols1 .items-col {width: 100%;}
+  .items-cols2 .items-col {width: 49.9%;}
+  .items-cols3 .items-col {width: 33.3%;}
+  .items-cols4 .items-col {width: 24.9%;}
+  .items-cols5 .items-col {width: 19.9%;}
+  .items-cols6 .items-col {width: 16.6%;}
+  .items-cols7 .items-col {width: 14.2%;}
+  .items-cols8 .items-col {width: 12.4%;}
+  .items-cols9 .items-col {width: 11.1%;}
+  .items-cols10 .items-col {width: 9.9%;}
+  
+  div.title {
+  	a.title_img {
+  		display: block;
+  		margin-bottom: 20px;
+  	}
+    a.title {
+      font-size: @JMclassifiedsBoxTitleFontSize;
+      line-height: 1.1;
+      font-weight: 400;
+      text-decoration: none;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+      position: relative;
+      &:after {
+        position: absolute;
+        content:'';
+        width: 5px;
+        height: 5px;
+        left: 0;
+        right: auto;
+        bottom: 3px;
+        background: @JMstyle;
+      }
+    }
+    span.category a.title_cat {
+      font-weight: 400;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    span {
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    span.date {
+      font-size: 13px;
+    }
+    span.price {
+      font-size: 22px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span.date,
+    span.category,
+    span.region,
+    span.type, 
+    span.price {
+      padding-bottom: 3px;
+      display: block;
+    }
+  }
+  .desc {
+  	display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow:ellipsis;
+  }
+}
+
+.jm-image-block .mod_djclassifieds_items .title img {
+  float: none;
+  display: block;
+}
+
+.mod_djclassifieds_items div.title a.title,
+.jm-module.white-ms .mod_djclassifieds_items div.title a.title {
+  &:hover {
+    color: @JMstyleHeadingHoverColor;
+  }
+}
+
+.mod_djclassifieds_items div.title a.title,
+.mod_djclassifieds_items div.title span,
+.jm-module.white-ms .mod_djclassifieds_items div.title a.title,
+.jm-module.white-ms .mod_djclassifieds_items div.title span {
+    color: @JMmoduleTitleColor;
+}
+
+.mod_djclassifieds_items div.title span.category a.title_cat,
+.jm-module.white-ms .mod_djclassifieds_items div.title span.category a.title_cat {
+    color: @JMclassifiedsModuleItemsCategoryFontColor;
+}
+
+.mod_djclassifieds_items div.title span,
+.jm-module.white-ms .mod_djclassifieds_items div.title span {
+    color: @JMmoduleTitleColor;
+}
+
+.jm-footer {
+  .mod_djclassifieds_items div.title a.title,
+  .mod_djclassifieds_items div.title span {
+    color: @JMmenuFootermodLinkColor;
+  }
+  .mod_djclassifieds_items .item:before,
+  .mod_djclassifieds_items .item:after {
+    border-color: @JMmenuFootermodBorderColor;
+  }
+  .mod_djclassifieds_items div.title span.category a.title_cat {
+    color: @JMclassifiedsModuleItemsCategoryFontColor;
+  }
+  .djcf_user_points .djcf_upoints_box {
+    border-bottom: 1px solid @JMmenuFootermodBorderColor;
+  }
+}
+
+// Module Items Slider
+// -------------------------- 
+
+.mod_djclassifieds_items.mod_djcf_slider {
+  position: relative;
+  .items-outer {
+    overflow: hidden;
+    padding: 0 40px;
+    .box-sizing(border-box);
+  }
+  .items {
+    overflow: hidden;
+    margin: 10px 0 0 0px;
+  }
+  .items-content {
+    .opacity(0);      
+  }
+  
+  .items-cols1 .item-box {width: 100%;}
+  .items-cols2 .item-box {width: 49.9%;}
+  .items-cols3 .item-box {width: 33.3%;}
+  .items-cols4 .item-box {width: 24.9%;}
+  .items-cols5 .item-box {width: 19.9%;}
+  .items-cols6 .item-box {width: 16.6%;}
+  .items-cols7 .item-box {width: 14.2%;}
+  .items-cols8 .item-box {width: 12.4%;}
+  .items-cols9 .item-box {width: 11.1%;}
+  .items-cols10 .item-box {width: 9.9%;}
+  
+  .items-content .item-box {
+    float: left;
+  }
+  .items-content .item-box .item {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  .items-content .item-box .item-box-in {
+    padding: 0 5px 5px;
+  }
+  .djcf_slider_left,
+  .djcf_slider_right {
+    width: 30px;
+    height: 30px;
+    left: 5px;
+    right: auto;
+    top: 50px;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    display: none;
+    background: #75796F url('../images/classifieds/slider_arrow_left.png') center 8px no-repeat;
+    .border-radius(3px);
+    color: #fff;
+    font-weight: bold;
+  }
+  .djcf_slider_right {
+    background: #75796F url('../images/classifieds/slider_arrow_right.png') center 8px no-repeat;
+    left: auto;
+    right: 5px;
+  }
+  .djcf_slider_right.blocked {
+    background: #CCCCCC url('../images/classifieds/slider_arrow_right.png') center 8px no-repeat;
+  }
+  .djcf_slider_left.blocked {
+    background: #CCCCCC url('../images/classifieds/slider_arrow_left.png') center 8px no-repeat;
+  }
+  .djcf_slider_loader {   
+    position: absolute;
+    width: 100%;
+    height: 31px;
+    top: 50px;
+    left: 0;
+    right: auto;
+  }
+  .djcf_slider_loader_img {
+    width: 31px;
+    height: 31px;
+    margin: 0 auto;
+    background: url('../images/classifieds/slider_loader.gif') top left no-repeat;
+  }
+  .item:before,
+  .item:after {
+    display: none!important;
+  }
+}
+
+// Menu Module
+// -------------------------- 
+
+.djcf_menu .newad_link_bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#jm-allpage .djcf_menu a.button {
+  padding: 8px 15px 7px;
+}
+
+.djcf_user_points,
+.djcf_user_menu,
+.jm-module.white-ms .djcf_user_points,
+.jm-module.white-ms .djcf_user_menu {
+  ul.menu li:hover > a,
+  ul.menu li.active > a {
+    color: @JMstyleMenuActiveFontColor;
+  }
+}
+
+.jm-footer .djcf_user_points,
+.jm-footer .djcf_user_menu {
+  ul.menu {
+    li:hover > a,
+    li.active > a {
+      color: @JMmenuFootermodLinkActiveColor;
+    }
+    > li {
+      border-bottom: 1px solid @JMmenuFootermodBorderColor;
+    }
+  }
+}
+
+//classfieds menu arrows
+/* V */
+.jm-bottom .djcf_menu .menu > li.active:after,
+.jm-bottom .djcf_menu .menu > li.active:hover:after {
+  border-color: @JMmenuFootermodBorderColor transparent transparent transparent;
+  border-color: @JMmenuFootermodBorderColor rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+}
+
+/* > */
+.jm-bottom .djcf_menu .menu > li:hover:after  {
+  border-color: transparent transparent transparent @JMmenuFootermodBorderColor;
+  border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) @JMmenuFootermodBorderColor;
+}
+
+.tags .djcf_menu .menu > li.active:after {
+  display: none!important;
+}
+
+.tags .djcf_menu .menu > li:hover:after {
+  top: 12px;
+}
+
+// Module Search
+// -------------------------- 
+
+.dj_cf_search {
+  .label {
+    color: inherit;
+    text-shadow: none;
+  }
+  input,
+  select {
+    max-width: 400px;
+  }
+  /* first */
+  form > input[type="text"] {
+    margin: 0 0 20px;
+  }
+  /* div */
+  form > div[class*='search'] {
+    margin: 0 0 20px;
+  }
+  form > div.search_ex_fields {
+    margin: 0;
+  }
+  input[type="text"] {
+    width: 100% !important;
+    min-height: 38px;    
+  }
+  .search_radius input {
+    display: block;
+  }
+  .search_radius input,
+  .search_radius select {
+    margin: 20px 0 0;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  .search_regions div,
+  .search_cats div {
+    margin: 20px 0 0;
+  }
+  form {
+    width: 100%;
+    margin: 0;
+  }
+  select {
+    width: 100% !important;
+    display: block;
+  }
+  .search_ex_fields select {
+    min-width: 65px;
+  }
+  .search_ex_fields:empty {
+    margin: 0;
+  } 
+  .search_ex_fields input.inputbox[type="radio"] {
+    width: auto !important;
+  }
+  input[type="radio"], 
+  input[type="checkbox"] {
+    height: auto;
+    line-height: normal;
+    margin: 0;
+    vertical-align: middle;
+  }
+  .search_price span.label1,
+  span.from_class {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .search_price span.label2,
+  span.to_class {
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+  .djseform_field .radiofield_box {
+    display: inline-block;
+    width: 100%;
+  }
+  .djseform_field .radiofield_box span.radio_label {
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+  .se_checkbox {
+    max-width: 400px;
+    display: inline-block;
+  }
+  .se_checkbox div {
+    width: 100%;
+  }
+  .se_checkbox div,
+  .radiofield_box div {
+    float: none!important;
+  }
+  .se_checkbox div .radio_label {
+    margin: 0 0 0 7px;
+  }
+  label, 
+  span.label {
+  	background: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 300!important;
+    line-height: 1;
+    margin: 0 0 20px;
+    padding: 0;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 400px;
+    color: @JMclassifiedsModuleSearchLabelFontColor;
+    .box-sizing(border-box);
+    .border-radius(0);
+  }
+  .djseform_field {
+    margin: 0 0 20px;
+  }
+  .search_price .label2 {
+    margin: 0;
+  }
+  .search_price input.inputbox,
+  span.from_class + input.inputbox,
+  span.to_class + input.inputbox {
+    width: 53px !important;
+  }
+  .to_class {
+    margin: 0 0 0 5px;
+  }
+  .djse_type_date .to_class {
+    margin: 0 5px 0 0;
+  }
+  .from_class {
+    margin: 0 5px 0 0;  
+  }
+  .to_class.new {
+    margin: 0 5px;
+  }
+  .search_only_video .label,
+  .search_only_images .label{
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0;
+    background: none;
+    color: inherit;
+    width: auto;
+  }
+  a.reset_button {
+    margin: 0 10px;
+    display: inline-block
+  }
+}
+
+// Module Search Horizontal
+// -------------------------- 
+
+.dj_cf_search.dj_cf_search_horizontal {
+  input.inputbox.first_input {
+    margin-right: 2%;
+  } 
+  .search_ex_fields .djseform_field:nth-of-type(3n+1) {
+    clear: both;
+    margin-left: 0;
+  }
+  .search_regions div select {
+    margin-left: 2%;
+  } 
+  .search_radius input,
+  .search_radius select,
+  input.inputbox.first_input, 
+  .search_regions select,
+  .search_cats select,
+  .search_type select,
+  .search_time select,
+  .djseform_field {
+    float: left;
+    width: 32% !important;
+    .box-sizing(border-box);
+  }
+  .search_radius input,
+  .search_time select,
+  .search_type select{
+    margin-right: 2%;
+  }
+  div.search_time select,
+  div.search_type select {
+    margin-bottom: 20px;
+  }  
+  div.search_time,
+  div.search_type,
+  div.search_regions div,
+  div.search_cats div {
+    margin: 0;
+  }  
+  .search_radius input,
+  .search_radius select {
+    margin-top: 0;
+  }  
+  .search_cats div select,
+  .djseform_field {
+    margin-left: 2%;
+  }
+  .search_regions,
+  .search_radius,
+  .search_ex_fields,
+  .search_cats  {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
+  .search_price {
+    clear: both;
+    width: 32%;
+  }
+  .se_checkbox,
+  .search_only_video,
+  .search_only_images,
+  button {  
+    clear: both;
+  }
+}
+
+// Module user points
+// -------------------------- 
+
+.djcf_user_points .djcf_upoints_box {
+  padding: 10px 0;
+  .djcf_upoints{
+    font-size: 1.2em;
+    margin-left: 10px;
+    display: inline-block;
+  }
+}
+
+// Module Maps
+// -------------------------- 
+
+.djmod_map img {
+  max-width: none;
+}
+
+#djmod_map_box #djmod_map img {
+  .box-sizing(content-box);
+  max-width: none;
+}
+
+// Tooltips
+// -------------------------- 
+
+.djcf_label,
+.djcf {
+  z-index: 1000;
+  margin: 20px 0;
+}
+
+.djcf .tip{
+  background: rgba(red(@JMclassifiedsTooltipBorder), green(@JMclassifiedsTooltipBorder), blue(@JMclassifiedsTooltipBorder), 0.5);
+  border: none;
+  max-width: 800px;
+  min-width: 300px;
+  padding: 6px;
+} 
+
+.djcf .tip-title {
+  background: @JMclassifiedsTooltipBackground;
+  font-weight: 400;
+  margin: 0 !important;
+  padding: 15px 15px 10px;
+  font-size: 1.2em;
+}
+
+.djcf .tip-text { 
+  background: @JMclassifiedsTooltipBackground;
+  padding: 0px 15px 15px;
+}
+
+.djcf .tip-text .tp_desc {
+  border-top: 1px solid @JMclassifiedsBorder;
+  padding: 7px 0 15px;
+}
+
+.djcf .tip-text .tp_contact,
+.djcf .tip-text .tp_price,
+.djcf .tip-text .row_location {
+  padding: 0 0 15px;
+}
+
+.djcf .tip-text .row_location,
+.djcf .tip-text .row_contact {
+  width: 35%;
+  float: left;
+  margin-right: 5%; 
+}
+
+.djcf .tip-text .row_price {
+  width: 20%;
+  float: left;
+}
+
+.tip-text .images_box img {
+  margin-right: 5px;
+}
+
+.tip-text .row_title,
+.tip-text .title {
+  border-bottom: 1px solid @JMclassifiedsBorder;
+  font-weight: bold;
+  margin: 0 0 5px;
+  padding: 0 0 5px;
+}
+
+.djcf_prom .tip {
+  background: transparent;
+  border: none;
+}
+
+.djcf_label .tip {
+  background: rgba(red(@JMclassifiedsTooltipBorder), green(@JMclassifiedsTooltipBorder), blue(@JMclassifiedsTooltipBorder), 0.5);
+  border: none;
+  max-width: 398px;
+  padding: 6px;
+} 
+
+.djcf_label .tip-title {
+  background: @JMclassifiedsTooltipBackground;
+  font-weight: normal;
+  margin: 0 !important;
+  padding: 10px;
+  width: 266px !important;
+  font-size: 1.2em;
+}
+
+.djcf_label .tip-text { 
+  background: @JMclassifiedsTooltipBackground;
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 0 10px 10px;
+  width: 266px !important;
+  display: none;
+}
+
+img.callendar {
+  cursor: pointer;
+}
+
+#dj-classifieds .dj-item_button {
+  margin-left: 5px;
+} 
+
+#lbPrevLink, #lbNextLink { 
+  background: none; 
+} 
+
+// DJ-Classifieds positions
+// -------------------------- 
+
+#dj-classifieds .djcf-ad-item-bottom {
+  .moduletable {
+    margin: 0;
+  }
+}
+

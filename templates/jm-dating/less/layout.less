@@ -1,0 +1,421 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   LAYOUT styles
+   ========================================================================== */
+
+//site wrapper
+#jm-allpage {
+  position: relative;
+  background: @JMallpageBackground;
+}
+
+.allpage-img #jm-allpage {
+	z-index: 1;
+  &:after {
+  	content: '';
+	  .opacity(@JMallpageBackgroundImageOpacity);
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: -1; 
+  }
+}
+
+// topbar
+// --------------------------
+
+#jm-top-bar {
+  background: @JMtopbarBackground;
+  width: 100%;
+  position: relative;
+  .box-shadow(0 0 3px 0 rgba(0,0,0, 0.1));
+  color: @JMtopbarFontColor;
+}
+
+//sticky styles for top-bar
+.sticky-bar #jm-top-bar {
+  top: 0;
+  left: 0;
+  right: auto;
+  position: fixed;
+  z-index: 999;
+}
+
+//top-bar modules
+#jm-top-bar .jm-module-raw {
+  padding: 10px 0;
+  margin: 0 0 0 10px;
+  text-align: right;
+  line-height: @JMtopbarHeight;
+  position: relative;
+  p {
+    margin: 0;
+  }
+  &:last-child:before {
+  	content: '';
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	right: auto;
+  	width: 1px;
+  	height: 100%;
+  	background: lighten(@JMborder, 5%);
+  }
+}
+
+
+#jm-logo-sitedesc {
+  padding: 13px 0;
+  //logo
+  #jm-logo {
+    line-height: @JMtopbarHeight;
+    vertical-align: middle;
+    text-transform: uppercase;
+    margin: 0;
+    a {
+      color: @JMlogoFontColor;
+      display: block;
+      img {
+        vertical-align: top;
+      }
+    }
+ }
+ //description
+  #jm-sitedesc {
+    line-height: @JMtopbarHeight;
+    vertical-align: middle;
+    color: @JMsiteDescriptionFontColor;
+    padding: 0 0 0 10px;
+  }
+}
+
+// header
+// --------------------------
+
+#jm-header {
+  background-color: @JMheaderBackground;
+  position: relative;
+  z-index: 1;
+  padding: @JMbaseSpace 0 0;
+  color: @JMheaderFontColor;
+}
+
+//remove space if background module loaded
+.header-bg #jm-header {
+  padding: 0;
+}
+
+//header-bg position
+#jm-header-bg {
+  position: relative;
+  z-index: 2;
+  min-height: @JMheaderbgHeight; //header background position minimal height
+  .jm-module-raw {
+    float: none;
+    margin: 0;
+  }
+}
+
+#jm-header-bg + #jm-header-content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  z-index: 3;
+  width: 100%;
+  margin-bottom: @JMbaseSpace;
+  margin-left: -(@JMfluidGridContainerLg/2);
+  padding: 0;
+}
+
+.fluid #jm-header-bg + #jm-header-content {
+  left: 0;
+  right: auto;
+  margin-left: ((100% - @JMfluidGridContainerLg)/2);
+}
+
+.header-bg #jm-header + section {
+	border-top: none;
+}
+
+// system message
+// --------------------------  
+
+#jm-system-message {
+  padding-top: @JMbaseSpace;
+}
+
+#jm-system-message + #jm-main {
+  padding-top: 0;
+}
+  
+// top-nav-menu
+// --------------------------
+
+#jm-djmenu-bar {
+  background: @JMmegamenuBackground;
+}
+
+#jm-djmenu-bar + section {
+  border-top: none;
+}
+
+// top1
+// --------------------------
+
+#jm-top1 {
+  padding: @JMbaseSpace 0 0;
+  background: @JMtop1Background;
+  color: @JMtop1FontColor;
+}
+
+// top2
+// --------------------------
+
+#jm-top2 {
+  padding: @JMbaseSpace 0 0;
+  background: @JMtop2Background;
+  color: @JMtop2FontColor;
+  border-top: 1px solid @JMtop2Border;
+  border-bottom: 1px solid @JMtop2Border;
+  //module title
+  .jm-title {
+  	color: @JMtop2ModuleTitleFontColor;
+  }
+}
+
+// breadcrumbs
+// --------------------------
+  
+#jm-breadcrumbs {
+  .breadcrumb {
+    padding: 0 0 12px;
+    border-bottom: 1px dotted @JMborder;
+    margin-bottom: @JMbaseSpace;
+    a {
+      text-decoration: none;
+    }
+  }
+}  
+
+#jm-font-switcher {
+  text-align: right;
+  margin: 0 0 15px;
+}
+
+// main
+// --------------------------
+
+#jm-main {
+  background: @JMpageBackground;
+  padding: @JMbaseSpace 0 0;
+}
+
+#jm-maincontent {
+  margin-bottom: @JMbaseSpace;
+}
+
+// bottom
+// --------------------------
+
+#jm-bottom1,
+#jm-bottom2,
+#jm-bottom3,
+#jm-footer-mod {
+  padding: @JMbaseSpace 0 0;
+}
+
+#jm-bottom1 {
+  background: @JMbottom1Background;
+  color: @JMbottom1FontColor;
+}
+
+#jm-bottom2 {
+  background: @JMbottom2Background;
+  color: @JMbottom2FontColor;
+  border-top: 1px solid @JMbottom2Border;
+  border-bottom: 1px solid @JMbottom2Border;
+  .jm-title {
+  	color: @JMbottom2ModuleTitleFontColor;
+  }
+}
+
+#jm-bottom3 {
+  background: @JMbottom3Background;
+  color: @JMbottom3FontColor;
+}
+
+// footer
+// --------------------------
+
+//footer modules background
+#jm-footer-mod {
+  background: @JMfootermodBackground;
+  color: @JMfootermodFontColor;
+  .jm-title {
+  	color: @JMfootermodModuleTitleFontColor;
+  }
+}
+
+#jm-footer {
+  padding: 20px 0;
+  background: @JMfooterBackground;
+  color: @JMfooterFontColor;
+  font-size: 13px;
+  a {
+    text-decoration: none;
+    color: @JMfooterLinkColor;
+    &:hover {
+      color: @JMstyleLink;
+    }
+  }
+}
+
+// JM copyright align
+#jm-footer-right {
+  text-align: right;
+}
+
+//footer line-height
+#jm-footer-left,
+#jm-footer-right {
+  line-height: 1.2;
+}
+
+#jm-back-top {
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+  left: auto;
+  z-index: 9999;
+  a {
+    text-decoration: none;
+    display: block;
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+  span {
+    display: block;
+    height: 60px;
+    .transition(all 1s ease 0s);
+    width: 60px;
+    background: url("../images/backtotop.png") no-repeat center center rgba(0, 0, 0, 0.2);
+    &:hover {
+        background: url("../images/backtotop.png") no-repeat center center rgba(0, 0, 0, 0.3);            
+    }
+  }
+}
+
+// section space
+// --------------------------
+
+//header + section
+#jm-header + #jm-top1,
+#jm-header + #jm-main,
+#jm-header + #jm-bottom1,
+#jm-header + #jm-bottom3,
+//top1 + section
+#jm-top1 + #jm-main,
+#jm-top1 + #jm-bottom1,
+#jm-top1 + #jm-bottom3,
+//main + section
+#jm-main + #jm-bottom1,
+#jm-main + #jm-bottom3,
+//bottom1 + section
+#jm-bottom1 + #jm-bottom3 {
+	padding-top: 0;
+}   
+
+.header-bg #jm-header + #jm-top1 {
+  padding-top: @JMbaseSpace;
+}
+
+// template width in pixels
+// --------------------------
+
+.responsive-disabled-pixels() when(ispixel(@JMfluidGridContainerLg)) {
+  //set min width if responsive is disabled
+  .responsive-disabled {
+    min-width: @JMfluidGridContainerLg;
+    #jm-allpage {
+      padding: 0!important;
+      min-width: @JMfluidGridContainerLg;
+    }
+    #jm-top-bar {
+      position: static;
+    }
+  }
+}
+.responsive-disabled-pixels();
+
+// template width in percentage
+// --------------------------
+
+.responsive-disabled-percentage() when(ispercentage(@JMfluidGridContainerLg)) {
+  @media (max-width: 1170px) {
+    .container-fluid {
+      .box-sizing(border-box);
+      max-width: 100%;
+    }
+  }  
+  //set min width if responsive is disabled
+  .responsive-disabled {
+    min-width: 1170px;
+    #jm-allpage {
+      padding: 0!important;
+      min-width: 1170px;
+    }
+    #jm-top-bar {
+      position: static;
+    }
+    #jm-header-bg + #jm-header-content {
+      width: auto;
+    }
+  }
+}
+.responsive-disabled-percentage();
+
+// font-switcher
+// --------------------------
+
+.texttoggler {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none!important;
+  margin: 0 1px;
+  display: inline-block;
+}
+
+.texttoggler.small {
+  font-size: 0.8em;
+}
+
+.texttoggler.normal {
+  font-size: 1.1em;
+}
+
+.texttoggler.large {
+  font-size: 1.3em;
+}
+
+.smallview #jm-maincontent {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+.largeview #jm-maincontent {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+
+

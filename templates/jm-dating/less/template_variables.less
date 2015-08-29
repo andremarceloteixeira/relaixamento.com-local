@@ -1,0 +1,329 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   COLOR styles
+   ========================================================================== */
+  
+// Theme
+// --------------------------------------------------
+
+//scheme   
+@JMstyle: @JMcolorVersion;
+
+@JMstyleLight: lighten(@JMstyle, 10%);
+@JMstyleDark: darken(@JMstyle, 10%);
+
+//images directory
+@JMimgDir: @JMimagesDir;
+
+// Layout values
+// --------------------------------------------------
+
+//global
+@JMbaseLineHeight: 1.7;
+
+//logo and description
+@JMlogoFontColor: #444444;
+@JMsiteDescriptionFontColor: #444444;
+
+//body
+@JMbodyFont: @JMbaseFontColor;
+@JMbodyBackgroundColor: @JMfootermodBackground; // color inherited from footer
+
+//allpage
+@JMallpageBackgroundImageOpacity: 4; //~ 4%
+
+//sections background
+@JMheaderBackground: transparent;
+@JMtop1Background: transparent;
+@JMpageBackground: transparent;
+@JMbottom1Background: transparent;
+@JMbottom3Background: transparent;
+
+//sections font color
+@JMheaderFontColor: @JMbaseFontColor;
+@JMtop1FontColor: @JMbaseFontColor;
+@JMbottom1FontColor: @JMbaseFontColor;
+@JMbottom3FontColor: @JMbaseFontColor;
+
+//top-bar
+@JMtopbarHeight: 34px; // + padding ~ 70px
+
+//header
+@JMheaderbgHeight: 0; // if 0 - depends on module height
+
+//bottom2
+@JMbottom2Background: @JMtop2Background;
+@JMbottom2Border: @JMtop2Border;
+@JMbottom2FontColor: @JMtop2FontColor;
+@JMbottom2ModuleTitleFontColor: @JMtop2ModuleTitleFontColor;
+
+//footer
+@JMfooterLinkColor: lighten(@JMfooterFontColor, 20%);
+
+//copyrights
+@JMfooterBackground: jmdarken(@JMfootermodBackground, 18%);
+@JMfooterFontColor: @JMfootermodFontColor;
+
+//article info
+@JMarticleFontColor: #444444;
+@JMarticleFontSize: 12px;
+
+//social
+@JMsocialIconSize: 115px; //circle width & height
+
+//links
+@JMstyleLink: @JMstyle;
+@JMstyleInnerLink: @JMstyleLight;
+
+//component headings
+@JMheadingBorderColor: @JMstyle;
+@JMstyleHeadingHoverColor: @JMstyle;
+
+//offcanvas
+@JMoffCanvasToolbarBackground: jmdarken(@JMoffCanvasBackground, 20%);
+@JMoffCanvasIconSize: 20px;
+
+// DJ Megamenu values
+// --------------------------------------------------
+
+@JMmegamenuFontColorHover: @white;
+
+@JMmegamenuElementHeight: 34px;
+@JMmegamenuElementSubtitleFontSize: 11px; 
+
+@JMstyleMegamenuActiveBackground: @JMstyle;
+@JMstyleMegamenuSubmenuActiveFontColor: @JMstyle;
+
+// Menu Module values
+// --------------------------------------------------
+
+@JMstyleMenuActiveFontColor: @JMstyle;
+
+@JMmenuBorderColor: #ececec;
+@JMmenuArrowColor: @JMstyle;
+@JMmenuLinkColor: #372f2b;
+
+//menu in footer-mod
+@JMmenuFootermodLinkColor: @JMfootermodFontColor;
+@JMmenuFootermodLinkActiveColor: @white;
+@JMmenuFootermodBorderColor: lighten(@JMfootermodBackground, 10%);
+
+//menu in topbar
+//color of link with class 'color'
+@JMstyleTopbarMenuColorLinkBackground: @JMstyle;
+
+@JMstyleTopbarMenuColorLinkActiveBackground: @JMstyleDark;
+
+@JMtopbarMenuColorLinkActiveFontColor: @white;
+@JMmenuTopbarLinkColor: @JMtopbarFontColor;
+@JMmenuTopbarActiveFontColor: @JMstyle;
+
+@JMmenuTopbarSubmenuWidth: 180px;
+
+//tags
+@JMtagsLinkColor: #494542;
+@JMtagsBackgroundColor: @white;
+@JMtagsBorderColor: #e7e7e7;
+
+@JMtagsActiveLinkColor: @JMstyle;
+@JMtagsActiveBorderColor: @JMstyle;
+
+// Modules values
+// --------------------------------------------------
+
+//header module
+@JMheaderSloganColor: @JMmediatoolsTitleFontColor;
+@JMheaderSloganFontSize: 65px;
+
+@JMheaderSloganBackground: @JMmediatoolsDescriptionBackgroundColor;
+
+@JMheaderSloganSubtitleFontSize: 17px;
+@JMstyleHeaderSloganSubtitleColor: @JMstyle;
+
+//title-border1/2 suffix
+@JMtitleBorderModuleFontSize: 40px;
+
+//title-color suffix
+@JMtitlecolorModuleTitleFontSize: 22px;
+@JMstyleTitleColorModuleTitle: @JMstyle;
+
+//white-ms suffix
+@JMwhiteModuleTitleFontSize: 16px;
+@JMwhiteModuleBorderBottomColor: darken(@JMwhiteModuleBorderColor, 10%);
+
+//titile-center suffix
+@JMtitlecenterModuleTitleFontSize: 26px;
+
+//search module
+@JMsearch1CategoryInputWidth: 155px; // search1-ms category field width
+@JMsearch2CategoryInputWidth: 210px; // search2-ms category field width
+
+@JMsearchAdvancedButtonLabel: 'Pesquisa avançada'; // advanced search link label
+
+@JMsearchInputFontColor: #888888;
+@JMsearchInputBorder: @JMborder;
+
+@JMsearch1AdvancedButtonBackground: #fdfdfd;
+@JMsearch1AdvancedButtonBackgroundHover: lighten(@JMstyle, 45%);
+
+@JMsearch2AdvancedLinkColor: @white;
+
+//input width
+@JMsearch1InputWidth: 820px;
+@JMsearch2InputWidth: 630px;
+
+//search2 module backgroun
+@JMsearch2ModuleBackground: @white;
+
+// Buttons values
+// --------------------------------------------------
+  
+@JMbuttonFontSize: 13px;
+
+@JMbuttonPaddingTop: 9px;
+@JMbuttonPaddingLeft: 30px;
+@JMbuttonPaddingright: 30px;
+@JMbuttonPaddingBottom: 9px;
+
+@JMbuttonPadding: @JMbuttonPaddingTop @JMbuttonPaddingright @JMbuttonPaddingBottom @JMbuttonPaddingLeft;
+
+@JMstyleButtonBackground: @JMstyle;
+@JMstyleButtonActiveBackground: darken(@JMstyle, 5%);
+
+@JMbuttonFontColor: @white;
+
+//dropdowns (article edit button list background)
+@JMstyleButtonDropdown: @JMstyle;
+ 
+//inputs 
+@JMinputHeight: 36px; 
+@JMinputPadding: 8px 10px; // 20px line height + padding + border ~ 36px
+
+@JMinputFontSize: 13px; 
+@JMinputBackground: @white;
+@JMinputFontColor: #a6a6a6;
+@JMinputBorder: @JMborder;
+
+//readmore
+@JMreadmoreFontSize: 13px;
+@JMstyleReadmoreFontColor: @white;
+
+@JMstyleReadmoreBackground: @JMstyle;
+@JMstyleReadmoreBackgroundHover: @JMstyleDark;
+
+
+// Template values
+// --------------------------------------------------
+
+//tables
+@JMtableBackground: transparent;
+@JMtableBackgroundAccent: transparent; // for striping
+@JMtableBackgroundHover: #F5f5F5; // for hover
+@JMtableBorder: #dbdbdb; // table and cell border
+
+@JMtableHeadFontColor: @white;
+@JMtableHeadBackground: #282725;
+@JMtableHeadBackgroundHover: #3f3e3b;
+@JMtableBorderRadius: @baseBorderRadius;
+
+//accordion
+@JMaccordeonFontColor: #404040;
+@JMaccordionBorderColor: #e2e2e2;
+@JMaccordionBackgroundColor: @white;
+
+//tabs
+@JMtabsFontColor: #372f2b;
+@JMtabsBackgroundColor: #dbdbdb;
+@JMtabsContentBackground: @white;
+
+//pagination
+@JMpaginationFontColor: #372f2b;
+@JMpaginationActiveFontColor: @white;
+@JMpaginationInactiveFontColor: #888888;
+
+@JMpaginationBorderColor: #dbdbdb;
+
+@JMstylePaginationActiveBackground: @JMstyle;
+
+// Classifieds
+// --------------------------------------------------
+
+//font size
+@JMclassifiedsCategoriesFontSize: 13px;
+
+@JMclassifiedsTableTitleFontSize: 18px;
+@JMclassifiedsTablePriceFontSize: 18px;
+
+@JMclassifiedsBoxTitleFontSize: 18px;
+@JMclassifiedsBoxTitleLineHeight: 24px; // type button height 20px + 4px margin
+@JMclassifiedsBoxLabelsFontSize: 16px;
+
+//border
+@JMclassifiedsBorder: @JMborder;
+
+//categories
+@JMclassifiedsCategoriesTitleBackground: darken(@JMallpageBackground, 5%);
+
+//single ad gallery
+@JMclassifiedsImagesBackground: darken(@JMallpageBackground, 5%);
+
+//price
+@JMstyleClassifiedsPriceBackground: @JMstyle;
+@JMstyleClassifiedsPriceBorder: @JMstyleDark;
+@JMstyleClassifiedsPriceNegotiableFont: @JMstyleLight;
+
+//promotions
+@JMclassifiedsPromoBackground: lighten(@JMstyle, 45%);
+@JMclassifiedsPromoBorderColor: @JMstyle; 
+
+//tooltip
+@JMclassifiedsTooltipBackground: @white;
+@JMclassifiedsTooltipBorder: @JMclassifiedsBorder;
+
+//module items
+@JMclassifiedsModuleItemsCategoryFontColor: lighten(@JMbodyFont, 5%);
+
+//module search
+@JMclassifiedsModuleSearchLabelFontColor: #372f2b;
+
+// Mediatools
+// --------------------------------------------------
+
+//global
+@JMstyleMediatoolsLinkHover: @JMstyle;
+
+//slide title
+@JMmediatoolsTitleFontSize: 20px;
+@JMmediatoolsBigTitleFontSize: 65px;
+
+//description
+@JMmediatoolsDescriptionBigFontSize: 18px;
+
+//navigation
+@JMmediatoolsNavigationFontColor: @JMbodyFont;
+@JMmediatoolsNavigationActiveFontColor: @white;
+
+@JMmediatoolsNavigationBorderColor: #dbdbdb;
+@JMmediatoolsNavigationBackground: #f1f1f1;
+@JMmediatoolsNavigationActiveBackground: @JMstyle;
+
+//tabber
+@JMmediatoolsTabberTabFontColor: @JMmediatoolsDescriptionFontColor;
+@JMmediatoolsTabberTabFontColorActive: @white;
+
+@JMmediatoolsTabberBorderColor: lighten(@JMmediatoolsTabberBackground, 10%);
+@JMmediatoolsTabberBackground: @black;
+@JMstyleMediatoolsTabberActiveTab: @JMstyle;
+
+//navigation-ms
+@JMmediatoolsNavigationmsBackground: @black;
+
+//pagination-ms
+@JMmediatoolsPaginationmsBackground: #fef8eb;
+

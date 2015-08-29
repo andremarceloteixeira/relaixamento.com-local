@@ -1,0 +1,156 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+
+@import "bootstrap_variables.less";  
+@import "template_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "template_mixins.less";
+
+
+/*********************** OFFLINE PAGE ***********************/ 
+
+body {
+	margin: 0;
+  font-family: @JMbaseFontFamily; //JM
+  font-size: @JMbaseFontSize; //JM
+  line-height: @JMbaseLineHeight; //JM edited
+  color: @JMbaseFontColor; //JM
+  background: @JMallpageBackground;
+  text-align: center;
+}
+
+.jm-allpage {
+	padding: 10% 0 0;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @JMfluidGridContainerLg;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#jm-logo {
+	margin: 0 0 (@JMbaseSpace * 2);
+}
+
+fieldset {
+	border: 0;
+	padding: 0;
+	margin: (@JMbaseSpace * 2) 0 0;
+	display: inline-block;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 0 0 10px;
+    padding: 0;
+    color: @JMheadingColor;
+}
+
+#form-login-username,
+#form-login-password,
+#form-login-secretkey,
+#submit-buton {
+		float: left;
+		margin: 0 10px;
+}
+
+html[dir='rtl'] {
+	#form-login-username,
+	#form-login-password,
+	#form-login-secretkey,
+	#submit-buton {
+			float: right;
+	}
+}
+
+#form-login-username,
+#form-login-password,
+#form-login-secretkey {
+	.inputbox {
+		//copy form class
+		display: inline-block;
+	  line-height: @baseLineHeight;
+	  .border-radius(@inputBorderRadius);
+	  vertical-align: middle;
+	  .box-sizing (border-box);
+	  
+	  //JM added
+	  font-family: inherit;
+	  font-size: @JMinputFontSize;
+	  padding: @JMinputPadding;
+	  vertical-align: middle;
+	  border: 1px solid @JMinputBorder;
+	  color: @JMinputFontColor;
+	  background: @JMinputBackground;
+  
+	}
+}
+
+#form-login-remember {
+	clear: both;
+	text-align: left;
+	margin: 0 10px;
+}
+
+html[dir='rtl'] #form-login-remember {
+	text-align: right;
+}
+
+#form-login-remember label {
+	margin: 0 1px;
+}
+
+#remember {
+	vertical-align: middle;
+}
+
+//copy class btn
+.button {
+	
+	min-width: 200px;
+	
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: @baseLineHeight;
+  text-decoration: none!important;
+  .border-radius(@baseBorderRadius);
+ 
+  //JM added
+  font-size: @JMbuttonFontSize;
+  font-family: inherit;
+  font-weight: 400;
+  color: @JMbuttonFontColor!important;
+  padding: (@JMbuttonPaddingTop - 1px) @JMbuttonPaddingright (@JMbuttonPaddingBottom - 1px) @JMbuttonPaddingLeft;
+  border: none!important;
+  color: @JMbuttonFontColor!important;
+  background: @JMstyleButtonBackground;
+  
+  // Hover/focus state
+  &:hover,
+  &:focus {  
+    //JM .transition(none);
+    .transition(all 0.2s ease-in);  
+    background: @JMstyleButtonActiveBackground;
+  }
+}

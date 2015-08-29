@@ -1,0 +1,321 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+.nav.menu {
+  margin: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    background-image: none!important;
+  }
+  > li {
+    border-bottom: 1px solid @JMmenuBorderColor;
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+  > li:first-child > a {
+    padding-top: 0;
+  }
+  > li.parent {
+    position: relative;
+  }
+  > li.parent:after {
+    content: '';
+    position: absolute;
+    top: 17px;
+    right: 5px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 5px;
+    border-color: transparent transparent transparent @JMmenuArrowColor;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) @JMmenuArrowColor;
+  }
+  > li.parent.deeper:after {
+    border-width: 5px 4.5px 0 4.5px;
+    border-color: @JMmenuArrowColor transparent transparent transparent;
+    border-color: @JMmenuArrowColor rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+  }
+  ul {
+    padding: 0 0 0 20px;
+    margin: 0;
+  }
+  > li > ul {
+    padding-bottom: 5px;
+  }
+  li a,
+  li span.separator {
+    background: none;
+    color: @JMmenuLinkColor;
+    font-size: 13px;
+    padding: 10px 20px 10px 0;
+    display: block;
+    text-decoration: none;
+  }
+  > li:first-child.parent:after {
+    top: 7px;
+  }
+  ul li a {
+    padding: 4px 0;
+  }
+}
+
+.nav.menu li:hover > a,
+.nav.menu li.active > a {
+  color: @JMstyleMenuActiveFontColor;
+}
+
+/** menu footer-mod **/
+    
+.jm-footer .nav.menu {
+  li a,
+  li span.separator {
+    color: @JMmenuFootermodLinkColor;
+  }
+  li:hover > a,
+  li.active > a {
+    color: @JMmenuFootermodLinkActiveColor;
+  }
+  > li {
+    border-bottom: 1px solid @JMmenuFootermodBorderColor;
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+}
+
+.jm-footer .nav.menu {
+  > li.parent:after {
+    border-color: transparent transparent transparent @JMmenuFootermodBorderColor;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) @JMmenuFootermodBorderColor;
+  }
+  > li.parent.deeper:after {
+    border-color: @JMmenuFootermodBorderColor transparent transparent transparent;
+    border-color: @JMmenuFootermodBorderColor rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+  }
+}
+
+/** menu in module white-ms **/
+    
+.jm-module.white-ms .nav.menu {
+  li a,
+  li span.separator {
+    color: @JMmenuLinkColor;
+  }
+  > li {
+    border-bottom: 1px solid @JMwhiteModuleBorderColor;
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+}
+
+.jm-module.white-ms .nav.menu li:hover > a,
+.jm-module.white-ms .nav.menu li.active > a {
+  color: @JMstyleMenuActiveFontColor;
+}
+
+/** offcanvas **/
+    
+.jm-offcanvas .nav.menu {
+  li a,
+  li span.separator {
+    color: @JMoffCanvasFontColor;
+  }
+  li:hover > a,
+  li.active > a {
+    color: @JMstyleMenuActiveFontColor;
+  }
+  > li {
+    border-bottom: 1px solid jmlighten(@JMoffCanvasBackground, 15%);
+  }
+  > li:last-child {
+    border-bottom: none;
+  }
+}
+
+/** top-bar menu **/
+ 
+#jm-top-bar .nav.menu {
+  padding: 8px 0;
+  li {
+    display: inline-block;
+    border: none;
+    background: none;
+    line-height: @JMtopbarHeight;
+    &:after {
+      display: none;
+    }
+  }
+  li a,
+  li span.separator {
+    padding: 0 10px;
+    color: @JMmenuTopbarLinkColor;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  li:hover > a,
+  li.active > a {
+    color: @JMmenuTopbarActiveFontColor;
+  }
+  > li a.color {
+    .border-radius(2px);
+    color: @JMtopbarMenuColorLinkActiveFontColor;
+    padding: 0 15px;
+    margin-left: 10px;
+  }
+}
+
+#jm-top-bar .nav.menu {
+  > li a.color {
+    background: @JMstyleTopbarMenuColorLinkBackground;
+  }
+  > li:hover a.color {
+    background: @JMstyleTopbarMenuColorLinkActiveBackground;
+  }
+}
+
+//dropdown
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    .opacity(0);
+    .translate3d(0, -100%, 0);
+  }
+  100% {
+    .opacity(100);
+    .transform(none);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    .opacity(0);
+    .translate3d(0, -100%, 0);
+  }
+  100% {
+    .opacity(100);
+    .transform(none);
+  }
+}
+
+#jm-top-bar .nav.menu {
+  li ul {
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    display: none;
+    visibility: hidden;
+    background: @JMtopbarBackground;
+    text-align: left;
+    li {
+      min-width: @JMmenuTopbarSubmenuWidth;
+      display: block;
+      position: relative;
+      a,
+      span.separator {
+        padding: 5px 20px;
+      }
+    }
+    li + li {
+      border-top: 1px solid lighten(@JMtopbarBackground, 10%);
+    }
+  }
+  > li > ul {
+    border-top: 18px solid transparent;
+  }
+  li:hover > ul {
+    display: block;
+    visibility: visible;
+    z-index: 501;
+    .animation(fadeInDown 0.4s ease);
+  }
+  li li ul {
+    top: 0;
+    left: 100%;
+    right: auto;
+  }
+}
+
+/** tags **/
+.tagspopular ul,
+.tagssimilar ul,
+.nav.menu.tags-ms,
+.tags-ms .nav.menu {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  > li {
+    display: inline-block;
+    border: none;
+    background: none;
+    margin: 0 10px 10px 0;
+    padding: 0;
+    &:after {
+      display: none;
+    }
+  }
+  > li a {
+    color: @JMtagsLinkColor;
+    padding: 3px 18px!important;
+    background: @JMtagsBackgroundColor;
+    border: 1px solid @JMtagsBorderColor;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    .border-radius(3px);
+  }
+  > li:hover a,
+  > li.active a {
+    color: @JMtagsActiveLinkColor!important;
+    border: 1px solid @JMtagsActiveBorderColor;
+    &:hover {
+      color: @JMtagsActiveLinkColor!important;
+    }
+  }
+  ul {
+    display: none;
+  }
+}
+
+.tagspopular ul,
+.tagssimilar ul {
+  > li {
+    margin: 0 6px 10px 0;
+  }
+  > li a {
+    padding: 6px 18px;
+  }
+}
+
+#jm-allpage .tags-ms {
+  > span {
+    display: inline-block;
+    margin: 0 1px 10px 0;
+  }
+  > span a {
+    color: @JMtagsLinkColor;
+    padding: 3px 18px;
+    background: @JMtagsBackgroundColor;
+    border: 1px solid @JMtagsBorderColor;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    .border-radius(3px);
+    text-shadow: none;
+    text-decoration: none;
+    line-height: @JMbaseLineHeight;
+  }
+  > span:hover a {
+    color: @JMtagsActiveLinkColor;
+    border: 1px solid @JMtagsActiveBorderColor;
+  }  
+}

@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   DJ-MENU styles
+   ========================================================================== */
+
+body #jm-allpage .dj-megamenu {
+  text-align: right;
+  li.dj-up {
+    float: right;
+    margin: 0 0 0 10px;
+  }
+  li a.dj-up_a span.dj-drop {
+    padding: 0 0 0 25px !important;
+  }
+  li a.dj-up_a span.dj-drop:after {
+    right: auto;
+    left: 0;
+  }
+  li:hover div.dj-subwrap,
+  li.hover div.dj-subwrap {
+    left: auto;
+    right: 0;
+  } 
+  li:hover div.dj-subwrap li:hover > div.dj-subwrap,
+  li.hover div.dj-subwrap li.hover > div.dj-subwrap {
+    left: auto;
+    right: 100%;
+  }
+  li div.dj-subcol {
+    float: right;
+  }
+  li ul.dj-submenu > li.parent > a:after {
+    right: auto;
+    left: 5px;
+  }
+  li a span.image-title {
+    margin: 0 15px 0 0;
+  }
+  li ul.dj-subtree > li {
+    padding: 0 10px 0 0;
+  }
+  li ul.dj-subtree > li > a {
+    background-position: right 10px;
+    background-image: url('../images/{@JMimgDir}/li_RTL.png');
+  }
+  .modules-wrap .moduletable:after {
+    left: auto;
+    right: 10%;
+  }
+}

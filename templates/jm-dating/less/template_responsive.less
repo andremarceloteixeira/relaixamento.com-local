@@ -1,0 +1,279 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+
+@import "bootstrap_variables.less";  
+@import "template_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "template_mixins.less";
+
+
+/* ==========================================================================
+   RESPONSIVE styles
+   ========================================================================== */
+
+@media (max-width: 1370px) {
+	#jm-allpage #jm-allpage-in .navigation-ms .dj-navigation {
+		.dj-play,
+		.dj-pause,
+		.dj-prev,
+		.dj-next {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 1250px) {
+	.jm-box .jm-box-space {
+		padding: 25px;
+	}
+}
+
+@media (max-width: 1100px) {
+	#jm-allpage #jm-allpage-in .jm-custom-title {
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 979px) {
+  
+  // global
+  // --------------------------
+  
+  //module height
+  
+  .jm-module-in {
+    height: auto !important;
+  }
+  
+  //responsive images
+  
+  img {
+    .box-sizing(border-box);
+  }
+  
+  //fix on displaying buttons on webkit browsers
+  .btn {
+    -webkit-appearance: none;
+  }
+
+  // layout
+  // --------------------------
+  
+  //djmenu
+  #jm-djmenu {
+    text-align: center;
+  }
+  
+  //header area
+  #jm-header-bg + #jm-header-content #jm-header-space {
+    padding-left: 15px;
+    padding-right: 15px;  
+  }
+  
+  // topbar
+  #jm-top-bar .jm-module-raw:last-child:before {
+		display: none;
+	}
+  
+  //back to top
+  #jm-back-top span {
+    width: 40px;
+    height: 40px;
+  }
+
+  // modules
+  // --------------------------
+  
+  //reset the module height suffix
+  .jm-module-in {
+    height: auto !important;
+  }
+  
+  //social title
+  .jm-social-title {
+  	display: block;
+  	position: static;
+  	top: auto;
+  	left: auto;
+  	right: auto;
+  	margin: 0 0 10px;
+  	width: auto;
+  }
+}
+ 
+@media (max-width: 767px) {
+  
+  // global
+  // --------------------------
+  
+  //responsive inputs
+  input, select, textarea {
+    max-width: 100%;
+  }
+  
+  // layout
+  // --------------------------
+	
+  #jm-footer-left {
+    padding-bottom: 10px;
+  }
+  #jm-footer-left,
+  #jm-footer-right {
+    text-align: center;
+  }
+  // modules
+  // --------------------------
+  
+  //custom slider title
+  #jm-allpage #jm-allpage-in .jm-custom-title {
+		font-size: 25px;
+	}
+  
+  //categories icons
+  #jm-allpage .jm-box .jm-box-in {
+  	float: none;
+  	width: 100%;
+  }
+  
+  // topbar login/logout
+	#jm-top-bar #login-form {
+		.input-small {
+			width: 90px;
+		}
+	}
+
+  // joomla
+  // --------------------------
+
+  //article items
+  .items-row {
+    margin-bottom: @JMbaseSpace;
+  }
+  
+  .items-row .item {
+    margin-bottom: @JMbaseSpace;
+  }
+  
+}
+
+@media (max-width: 480px) {
+	
+	// global
+  // --------------------------
+  
+	//responsive inputs
+	input, select, textarea {
+	  width: 100%;
+	}
+	
+	//tabs
+  dl.tabs,
+  .nav-tabs {
+    display: block!important;
+  }
+  dl.tabs dt.tabs,
+  .nav-tabs > li {
+    float: none!important;
+  }
+	
+	// modules
+  // --------------------------
+  
+  #jm-top-bar {
+  	padding: 0 0 10px;
+  	.jm-module-raw {
+  		padding: 0;
+  	}
+  }
+  #jm-top-bar .toggle-nav.menu {
+  	padding: 10px 0;
+  }
+  
+  #jm-allpage #jm-allpage-in #jm-header-bg .jm-custom-title {
+  	display: none;
+  }
+  
+  //search
+  #jm-allpage .search1-ms { 
+	  &.category-ms .dj_cf_search {
+	  	#form-search .inputbox.first_input,
+		  #form-search .inputbox.search-query {
+		    padding-left: 25px;
+		  }
+	  }
+	  &.category-ms .inputbox.first_input + div {
+	  	margin-top: 10px!important;
+	  }
+	  &.category-ms .dj_cf_search #form-search .search_cats {
+	  	position: static;
+	  	top: auto;
+	  	left: auto;
+	  	right: auto;
+	  	bottom: auto;
+	  	width: auto;
+	  	border: 1px solid @JMsearchInputBorder;
+	  	margin: 5px 0!important;
+	  	background: @JMinputBackground;
+	  	padding: 0 25px;
+	  	.chzn-container.chzn-container-single {
+	  		width: auto!important;
+	  	}
+	  	.chzn-container.chzn-container-single .chzn-single {
+	  		border: none!important;
+	  	}
+	  }
+  }
+  
+  #jm-allpage .search2-ms { 
+	  &.category-ms .dj_cf_search {
+	  	#form-search .inputbox.first_input,
+		  #form-search .inputbox.search-query {
+		    padding-left: 25px;
+		  }
+	  }
+	  &.category-ms .inputbox.first_input + div {
+	  	margin-top: 10px!important;
+	  }
+	  &.category-ms .dj_cf_search #form-search .search_cats {
+	  	position: static;
+	  	top: auto;
+	  	left: auto;
+	  	right: auto;
+	  	bottom: auto;
+	  	width: auto;
+	  	border-top: 1px solid @JMsearchInputBorder;
+	  	.chzn-container.chzn-container-single {
+	  		width: auto!important;
+	  	}
+	  	.chzn-container.chzn-container-single .chzn-single {
+	  		border: none!important;
+	  	}
+	  }
+  }
+  
+  //search RTL
+    html[dir='rtl'] #jm-allpage .search1-ms,
+    html[dir='rtl'] #jm-allpage .search2-ms { 
+	  &.category-ms .dj_cf_search {
+	  	#form-search .inputbox.first_input,
+		  #form-search .inputbox.search-query {
+		  	padding-left: 85px;
+		    padding-right: 25px;
+		  }
+	  }
+	 }
+}
+

@@ -1,0 +1,142 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+/* ==========================================================================
+   COLOR styles
+   ========================================================================== */
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+/* ==========================================================================
+   MIXINS styles
+   ========================================================================== */
+/*********************** OFFLINE PAGE ***********************/
+body {
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #6a6a6a;
+  background: #f6f6f6;
+  text-align: center;
+}
+.jm-allpage {
+  padding: 10% 0 0;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#jm-logo {
+  margin: 0 0 60px;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 60px 0 0;
+  display: inline-block;
+}
+h1 {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #372f2b;
+}
+#form-login-username,
+#form-login-password,
+#form-login-secretkey,
+#submit-buton {
+  float: left;
+  margin: 0 10px;
+}
+html[dir='rtl'] #form-login-username,
+html[dir='rtl'] #form-login-password,
+html[dir='rtl'] #form-login-secretkey,
+html[dir='rtl'] #submit-buton {
+  float: right;
+}
+#form-login-username .inputbox,
+#form-login-password .inputbox,
+#form-login-secretkey .inputbox {
+  display: inline-block;
+  line-height: 20px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  color: #a6a6a6;
+  background: #ffffff;
+}
+#form-login-remember {
+  clear: both;
+  text-align: left;
+  margin: 0 10px;
+}
+html[dir='rtl'] #form-login-remember {
+  text-align: right;
+}
+#form-login-remember label {
+  margin: 0 1px;
+}
+#remember {
+  vertical-align: middle;
+}
+.button {
+  min-width: 200px;
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: 20px;
+  text-decoration: none !important;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 400;
+  padding: 8px 30px 8px 30px;
+  border: none !important;
+  color: #ffffff !important;
+  background: #1f9ac8;
+}
+.button:hover,
+.button:focus {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background: #1c89b2;
+}
+/*# sourceMappingURL=http://ak.dev.pax3.eu/jm-dating2/templates/jm-dating/css/offline.map */

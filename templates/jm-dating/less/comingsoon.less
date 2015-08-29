@@ -1,0 +1,84 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+  
+@import "template_variables.less";
+@import "bootstrap_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "template_mixins.less";
+
+/* ==========================================================================
+   COMINGSOON styles
+   ========================================================================== */
+
+#jm-coming-soon {
+	min-height: 750px;
+}
+  
+#jm-coming-soon #jm-logo {
+	text-align: center;
+  padding: 80px 0;
+}
+
+#jm-coming-soon #jm-coming-module {
+  padding: 0 0 @JMbaseSpace;
+  text-align: center;
+  .jm-title {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    color: @JMmoduleTitleColor;
+    position: relative;
+    margin: 0;
+    padding: 0 0 20px;
+    &:before {
+    	display: none;
+    }
+  }
+}
+
+#countdown {
+	text-align: center;
+  p {
+    display: inline-block;
+    margin: 0 20px 20px;
+    vertical-align: middle;
+  }
+  span.days,
+  span.hours,
+  span.minutes,
+  span.seconds {
+  	height: 154px;
+  	width: 184px;
+  	background: url('../images/@{JMimgDir}/cs-heart.png') no-repeat center center;
+  	display: block;
+  	font-size: 47px;
+    font-weight: 700;
+    line-height: 144px;
+    color: @JMmoduleTitleColor;
+  }
+  span.timeRefDays,
+  span.timeRefHours,
+  span.timeRefMinutes,
+  span.timeRefSeconds {
+  	display: block;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    color: #5f5f5f;
+    padding: 15px 0 0;
+    text-transform: capitalize;
+  }
+}
+

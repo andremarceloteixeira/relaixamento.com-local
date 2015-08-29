@@ -1,0 +1,306 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+/* ==========================================================================
+   VARIABLES import
+   ========================================================================== */
+
+@import "bootstrap_variables.less";  
+@import "template_variables.less";
+
+/* ==========================================================================
+   MIXINS import
+   ========================================================================== */
+  
+@import "override/ltr/mixins.less";
+@import "template_mixins.less";
+
+// DJ Megamenu
+// -------------------------- 
+
+.dj-megamenu {
+  margin: 0 !important;
+  position: relative;
+  z-index: 500;
+  font-weight: 400;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  padding: 0 0 10px;
+  text-align: left;
+  font-family: @JMtopmenuFontFamily;
+}
+
+.dj-megamenu li.dj-up {
+  background-image: none;
+  position: relative;
+  display: block;
+  float: left;
+  padding: 10px 0 0;
+  margin: 0 10px 0 0;
+  z-index: 1;
+  a.dj-up_a {
+    font-size: @JMtopmenuFontSize;
+    display: block;
+    text-decoration: none;
+    padding: 0 20px;
+    height: @JMmegamenuElementHeight;
+    line-height: @JMmegamenuElementHeight;
+    cursor: pointer;
+    color: @JMmegamenuFontColor;
+    span {
+      display: block;
+    }
+    span.dj-drop {
+      padding: 0 25px 0 0 !important;
+      position: relative;
+      z-index: 201;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 16px;
+        right: 0;
+        left: auto;
+        width: 9px;
+        height: 5px;
+        background: url('../images/djmenu-drop-active.png');
+      }
+    }
+    small.subtitle {
+      display: block;
+      font-size: @JMmegamenuElementSubtitleFontSize;
+      text-transform: none;
+      line-height: (@JMmegamenuElementSubtitleFontSize+2);
+      margin-top: -10px;
+      font-weight: 300;
+      .opacity(80);
+    }
+  }
+  &.active,
+  &:hover,
+  &.hover  {
+    a.dj-up_a {
+      color: @JMmegamenuFontColorHover;
+      background: @JMstyleMegamenuActiveBackground;
+      .border-radius(3px); 
+      span.dj-drop:after {
+        background: url('../images/djmenu-drop-active.png');
+      }
+    }
+  } 
+}
+
+.dj-megamenu.hasSubtitles li a.dj-up_a {
+  height: (@JMmegamenuElementHeight+(@JMmegamenuElementSubtitleFontSize+2));
+  line-height: (@JMmegamenuElementHeight+(@JMmegamenuElementSubtitleFontSize+2));
+  span {
+    line-height: @JMmegamenuElementHeight;
+  }
+}
+
+.dj-megamenu li.separator > a {
+  cursor: default;
+}
+
+// sticky
+// --------------------------  
+
+.dj-megamenu-sticky {
+  background: @JMmegamenuBackground;
+  padding: 0;
+}
+
+// submenu
+// --------------------------  
+
+.dj-megamenu li.dj-up:hover,
+.dj-megamenu li.dj-up.hover,
+.dj-megamenu .dj-submenu > li:hover,
+.dj-megamenu .dj-subtree > li:hover {
+  position: relative;
+  z-index: 200;
+}
+
+//hide submenus
+.dj-megamenu li div.dj-subwrap {
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: -9999px;
+  visibility: hidden;
+}
+
+//first level submenu
+.dj-megamenu {
+  li:hover,
+  li.hover {
+    div.dj-subwrap {
+      left: 0;
+      right: auto;
+      top: 100%;
+ 			visibility: visible;
+      z-index: 300;
+      .box-sizing(border-box);
+      border-top: 10px solid transparent;
+      div.dj-subwrap-in {
+        background: @JMmegamenuSubmenuBackground;
+        border: 1px solid @JMmegamenuSubmenuBorder;
+      }
+    }
+  }
+}
+
+//higher level submenu
+.dj-megamenu {
+  li:hover,
+  li.hover {
+    div.dj-subwrap div.dj-subwrap {
+      left: 100%;
+      right: auto;
+      top: 0;
+      z-index: 400;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+    }
+  }
+}
+
+//submenu elements styles
+.dj-megamenu .dj-subcol {
+  float: left;
+  .box-sizing(border-box); 
+}
+
+.dj-megamenu .dj-submenu,
+.dj-megamenu .dj-subtree {
+  > li {
+    display: block;
+    position: relative;
+    padding: 0 15px;
+    background: none;
+    > a {
+      color: @JMmegamenuSubmenuFontColor;
+      display: block;
+      font-size: 12px;
+      line-height: 19px;
+      text-decoration: none;
+      padding: 10px 0;
+      small.subtitle {
+        display: block;
+        font-size: 11px;
+      }
+    }
+  }
+  > li:hover > a,
+  > li.hover > a,
+  > li.active > a {
+    color: @JMstyleMegamenuSubmenuActiveFontColor;
+  }
+  > li.parent > a {
+    position: relative;
+    &:after {
+      content: '+';
+      position: absolute;
+      top: 11px;
+      right: 5px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+    }
+  }
+}
+
+//image in menu
+.dj-megamenu {
+  span.image-title {
+    margin: 0 0 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  li > a > img {
+    max-height: 16px;
+    vertical-align: middle;
+  }
+  li.dj-up > a > img {
+    max-height: 30px;
+  }
+}
+
+
+// submenu tree
+// --------------------------  
+.dj-megamenu .dj-subtree {
+  list-style: none outside;
+  padding: 0 !important;
+  margin: 0!important;
+  > li {
+    list-style: none outside;
+    padding: 0 0 0 10px;
+    margin: 0;
+  }
+  > li > a {
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-position: left 10px;
+    background-repeat: no-repeat;
+    background-image: url('../images/@{JMimgDir}/li.png');
+  }
+  > li > a small.subtitle {
+    display: block;
+    font-size: 0.9em;
+    line-height: 1;
+  }
+}
+
+
+// modules
+// --------------------------  
+
+.dj-megamenu .modules-wrap {
+  padding: 20px 5px;
+  p {
+    display: block;
+    padding: 0;
+  }
+  .moduletable {
+    clear: both;
+    padding: @JMbaseSpace 0 0;
+    margin: @JMbaseSpace 0 0;
+    position: relative;
+    > h3 {
+      color: @JMmoduleTitleColor;
+      font-weight: 300;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 0 0 15px;
+      padding: 0;
+      &:before {
+      	display: none;
+      }
+    }
+    &:first-child {
+      padding: 0;
+      margin: 0;
+      &:after {
+        display: none;
+      }
+    }
+    &:after {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 0;
+      border-bottom: 1px solid @JMborder;
+    }
+  }
+}
+

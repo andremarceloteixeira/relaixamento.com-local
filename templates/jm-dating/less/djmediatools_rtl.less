@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+# Copyright (C) joomla-monster.com
+# License: http://www.joomla-monster.com/license.html Joomla-Monster Proprietary Use License
+# Website: http://www.joomla-monster.com
+# Support: info@joomla-monster.com
+---------------------------------------------------------------*/
+
+// default styles
+// ------------------------
+
+.dj-slide-title,
+.dj-slide-desc-text,
+.dj-slide-desc-text a {
+  text-align: right!important;    
+}
+
+#djmediatools a.dj-category {
+  float: right!important;
+}
+
+.dj-galleryGrid .dj-slide {
+  float: right!important;
+}
+
+.djslider {
+  direction: ltr !important;
+}
+
+.djslider .navigation-container-custom {
+  direction: rtl !important;
+}
+
+.dj-slideshowThumbs .dj-indicators-in {
+  left: auto !important;
+  right: 0 !important;
+}
+
+.dj-slideshowThumbs .dj-load-button {
+  float: right !important;
+}
+
+.box_skitter .info_slide {
+  left: auto;
+  right: 15px;
+}
+
+.box_skitter .info_slide .image_number {
+  float: right!important;
+}
+
+// djmediatools.less
+// ------------------------
+
+//album title
+.dj-cat-title {
+  padding: 0 20px 0 0;
+  &:before {
+    left: auto;
+    right: 0;
+  }
+}
+
+#jm-allpage #jm-allpage-in .dj-slide-desc-text {
+  border-left: none;
+  border-right: 6px solid @JMstyle;
+}
+
+// readmore 
+#jm-allpage #jm-allpage-in .dj-readmore-wrapper {
+  text-align: left;
+}
+
+// slideshow thumbnails 
+#jm-allpage #jm-allpage-in .dj-slideshowThumbs {
+  .dj-load-button {
+    margin: 0 0 0 30px;
+  }
+}
+
+// tabber
+#jm-allpage #jm-allpage-in .dj-tabber {
+  .dj-tab {
+    img {
+    	margin-right: 0;
+    	margin-left: 15px;
+    }
+  }
+}
+
+// skitter 
+#jm-allpage #jm-allpage-in .box_skitter {
+  .image_number {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
