@@ -29,6 +29,7 @@
    MIXINS styles
    ========================================================================== */
 .dj-megamenu {
+    opacity: 100 !important;
   margin: 0 !important;
   position: relative;
   z-index: 500;

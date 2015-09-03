@@ -1,4 +1,5 @@
 .dj-megamenu {
+    opacity: 100 !important;
     padding: 0 !important;
     margin: 0 !important;
     list-style: none;
@@ -23,6 +24,7 @@
     float: left;
     padding: 0 !important;
     margin: 0 !important;
+
 }
 .dj-megamenu li a.dj-up_a {
     display: block;

@@ -115,9 +115,12 @@ class modDJMegaMenuHelper extends modMenuHelper {
 	
 	public static function getSubCols(&$params) {
 	
-		if(!self::$subcols[$params->get('menu')]) self::getList($params);
-	
-		return self::$subcols[$params->get('menu')];
+		if (isset(self::$subcols[$params->get('menu')])){
+            self::getList($params);
+            return self::$subcols[$params->get('menu')];
+        }
+
+        return false;
 	}
 	
 	private static function loadModules($position, $style = 'xhtml')
